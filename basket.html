@@ -19,7 +19,7 @@
     <header>
         <nav>
             <a href="/" rel="index" title="Go to homepage">Orinoco</a>
-            <a href="basket.html">Panier : <span data-basket="current">0</span></a>
+            <a href="basket.html">Panier : <span data="basket-items-number">0</span></a>
         </nav>
     </header>
 
@@ -27,12 +27,12 @@
         <h1>Basket</h1>
 
         <h2>Contenu de votre panier</h2>
-        <ul data-basket="list">
+        <ul data="basket-items-container">
             <!-- TEMPLATE START -->
-            <template data-template="basket-item">
+            <template data="basket-item-template">
                 <li>
-                    <span data-item="name">Item name</span>
-                    <span data-item="price">Item price</span>
+                    <span data="item-name">Item name</span>
+                    <span data="item-price">Item price</span>
                 </li>
             </template>
             <!-- END -->
@@ -40,7 +40,7 @@
 
         <div>
             <span>Total : </span>
-            <span data-basket="total">0 €</span>
+            <span data="basket-price">0 €</span>
         </div>
 
         <h2>Passer commande pour le contenu de votre panier</h2>

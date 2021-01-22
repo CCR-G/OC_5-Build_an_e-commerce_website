@@ -19,22 +19,22 @@
     <header>
         <nav>
             <a href="index.html" rel="index" title="Go to homepage">Orinoco</a>
-            <a href="basket.html">Panier : <span data-basket="current">0</span></a>
+            <a href="basket.html">Panier : <span data="basket-items-number">0</span></a>
         </nav>
     </header>
 
-    <main data-template="item-cards-container">
+    <main data="item-cards-container">
         <!-- ITEM START -->
-        <template data-template="item-card">
+        <template data="item-card-template">
             <article>
-                <a data-item="link" href="" title="Naviguer vers la page 'xxx'">
+                <a data="item-link" href="" title="Naviguer vers la page 'xxx'">
                     <!-- href & title -->
                     <div class="image-container">
-                        <img data-item="image" aria-hidden="true" src="" width="100px" alt=""> <!-- src -->
+                        <img data="item-image" aria-hidden="true" src="" width="100px" alt=""> <!-- src -->
                     </div>
                     <div class="card-label">
-                        <span data-item="name"></span>
-                        <span data-item="price"></span>
+                        <span data="item-name"></span>
+                        <span data="item-price"></span>
                     </div>
                 </a>
             </article>
