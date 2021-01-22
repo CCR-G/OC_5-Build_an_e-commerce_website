@@ -23,19 +23,41 @@ function returnToHomePage() {
 }
 
 function insertDataInPage(item) {
-    item_name = getDataElement("item-name");
+    const item_name = getDataElement("item-name");
     item_name.textContent = item.name;
 
-    item_price = getDataElement("item-price");
+    const item_price = getDataElement("item-price");
     item_price.textContent = item.price;
 
-    item_description = getDataElement("item-description");
+    const item_description = getDataElement("item-description");
     item_description.textContent = item.description;
 
-    item_customisation_options = getDataElement("item-customisation");
+    const item_customisation_options = getDataElement("item-customisation");
     item.varnish.forEach(varnish => {
         const varnish_option = document.createElement("option");
         varnish_option.textContent = varnish;
         item_customisation_options.appendChild(varnish_option);
     });
+
+    const add_to_basket_form = getDataElement("basket-add-form");
+    add_to_basket_form.id = item.id;
+    add_to_basket_form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const item_id = event.target.id;
+        const quantity = parseInt(event.target.quantity_input.value);
+        addToBasket(item_id, quantity);
+        add_to_basket_form.reset();
+    });
+}
+
+function addToBasket(item_id, quantity) {
+    let item_stored_quantity = window.localStorage.getItem(item_id);
+
+    if (!item_stored_quantity) {
+        window.localStorage.setItem(item_id, quantity);
+        return;
+    }
+
+    let item_new_quantity = parseInt(item_stored_quantity) + quantity;
+    window.localStorage.setItem(item_id, item_new_quantity);
 }
