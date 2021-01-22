@@ -17,13 +17,7 @@ async function getProduct(item_id) {
     }
 
     const json_item = await item.json();
+    const product = new Furniture(json_item);
 
-    return {
-        id: json_item._id,
-        name: json_item.name,
-        price: json_item.price,
-        description: json_item.description,
-        varnish: json_item.varnish,
-        imageUrl: json_item.imageUrl
-    };
+    return product;
 }
