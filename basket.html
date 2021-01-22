@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>
+        Orinoco
+    </title>
+
+    <base href="index.html" />
+    <link rel="stylesheet" type="text/css" href="styles/style.min.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="title" content="orinoco" />
+    <meta name="author" content="CCR-G" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/" rel="index" title="Go to homepage">Orinoco</a>
+            <a href="basket.html">Panier : <span data-basket="current">0</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Basket</h1>
+
+        <h2>Contenu de votre panier</h2>
+        <ul data-basket="list">
+            <!-- TEMPLATE START -->
+            <template data-template="basket-item">
+                <li>
+                    <span data-item="name">Item name</span>
+                    <span data-item="price">Item price</span>
+                </li>
+            </template>
+            <!-- END -->
+        </ul>
+
+        <div>
+            <span>Total : </span>
+            <span data-basket="total">0 €</span>
+        </div>
+
+        <h2>Passer commande pour le contenu de votre panier</h2>
+        <form>
+            <label for="name">Full name :</label>
+            <input type="text" id="name" name="name" required>
+            <label for="address">Address :</label>
+            <input type="text" id="address" name="address" required>
+            <label for="town">Town :</label>
+            <input type="text" id="town" name="town" required>
+            <label for="email">email :</label>
+            <input type="email" id="email" name="email" required>
+            <input type="submit" value="Envoyer une demande de commande">
+        </form>
+    </main>
+</body>
+
+<footer>© 2018 Orinoco</footer>

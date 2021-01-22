@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>
+        Orinoco
+    </title>
+
+    <base href="index.html" />
+    <link rel="stylesheet" type="text/css" href="styles/style.min.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="title" content="orinoco" />
+    <meta name="author" content="CCR-G" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" rel="index" title="Go to homepage">Orinoco</a>
+            <a href="basket.html">Panier : <span data-basket="current">0</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="image-container">
+            <img data-item="image" aria-hidden="true" src="" alt=""> <!-- src -->
+        </div>
+        <div>
+            <h1 data-item="name">Item name</h1>
+            <p><span data-item="price">Item price</span> €</p>
+            <p data-item="description">Item description</p>
+
+            <label for="customisation-select">Choose a customisation</label>
+            <select data-item="customisation" name="pets" id="customisation-select">
+                <option value="">--Please choose an option--</option>
+            </select>
+        </div>
+        <button data-basket="add">Add to basket</button>
+    </main>
+</body>
+
+<footer>© 2018 Orinoco</footer>
