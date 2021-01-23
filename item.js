@@ -46,9 +46,13 @@ function insertDataInPage(item) {
     add_to_basket_form.id = item.id;
     add_to_basket_form.addEventListener("submit", (event) => {
         event.preventDefault();
+
         const item_id = event.target.id;
         const quantity = parseInt(event.target.quantity_input.value);
         addToBasket(item_id, quantity);
+
+        updateBasketDisplay();
+
         add_to_basket_form.reset();
     });
 }
