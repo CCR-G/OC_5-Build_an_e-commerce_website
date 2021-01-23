@@ -32,6 +32,9 @@ function insertDataInPage(item) {
     const item_description = getDataElement("item-description");
     item_description.textContent = item.description;
 
+    const item_image = getDataElement("item-image");
+    item_image.src = item.imageUrl;
+
     const item_customisation_options = getDataElement("item-customisation");
     item.varnish.forEach(varnish => {
         const varnish_option = document.createElement("option");
