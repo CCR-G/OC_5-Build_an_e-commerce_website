@@ -29,23 +29,24 @@
     </header>
 
     <main data="item-cards-container">
-        <!-- ITEM START -->
-        <template data="item-card-template">
-            <article>
-                <a data="item-link" href="" title="Naviguer vers la page 'xxx'">
-                    <!-- href & title -->
-                    <div class="image-container">
-                        <img data="item-image" aria-hidden="true" src="" width="100px" alt=""> <!-- src -->
-                    </div>
-                    <div class="card-label">
-                        <span data="item-name"></span>
-                        <span><span data="item-price"></span> €</span>
-                    </div>
-                </a>
-            </article>
-        </template>
-        <!-- ITEM END -->
     </main>
 </body>
 
 <footer>© 2018 Orinoco</footer>
+
+<!-- ITEM START -->
+<template data="item-card-template">
+    <article>
+        <a data="item-link" href="" title="Naviguer vers la page 'xxx'">
+            <!-- href & title -->
+            <div class="image-container">
+                <img data="item-image" aria-hidden="true" src="" width="100px" alt=""> <!-- src -->
+            </div>
+            <div class="card-label">
+                <span data="item-name"></span>
+                <span><span data="item-price"></span> €</span>
+            </div>
+        </a>
+    </article>
+</template>
+<!-- ITEM END -->

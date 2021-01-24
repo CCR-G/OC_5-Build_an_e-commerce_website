@@ -3,7 +3,8 @@ listenForStorageEvents();
 
 function listenForStorageEvents() {
     window.addEventListener('storage', () => {
-        updateBasketDisplay()
+        updateBasketDisplay();
+        generateBasketPage();
     });
 }
 
