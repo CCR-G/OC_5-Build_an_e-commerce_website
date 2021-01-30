@@ -5,9 +5,7 @@ function generateItemsListPage() {
         .catch((error) => {
             console.log(error.message);
         })
-        .then((furnitures_list) => {
-            insertItemCardsInPage(furnitures_list);
-        });
+        .then(insertItemCardsInPage);
 }
 
 async function getFurnituresList() {

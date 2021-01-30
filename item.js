@@ -6,8 +6,8 @@ function generateItemPage() {
         returnToHomePage();
     }
     getProduct(item_id)
-        .catch(() => returnToHomePage())
-        .then((item) => insertDataInPage(item));
+        .catch(returnToHomePage)
+        .then(insertDataInPage)
 }
 
 function getProductIdFromURL() {
@@ -47,9 +47,8 @@ function insertDataInPage(item) {
     add_to_basket_form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const item_id = event.target.id;
         const quantity = parseInt(event.target.quantity_input.value);
-        addToBasket(item_id, quantity);
+        addToBasket(add_to_basket_form.id, quantity);
 
         updateBasketDisplay();
 
