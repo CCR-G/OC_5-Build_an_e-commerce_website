@@ -9,12 +9,12 @@ class BasketItem {
 
     /**
      * @constructs BasketItem
-     * @param {Furniture} furniture - A Furniture Object
+     * @param {Furniture.id} id - A Furniture's id
      * @param {number} quantity - The quantity of this Furniture in basket
      */
 
-    constructor(furniture, quantity) {
-        this.furniture = furniture;
+    constructor(furniture_id, quantity) {
+        this.id = furniture_id;
         this.quantity = quantity;
     }
 }
