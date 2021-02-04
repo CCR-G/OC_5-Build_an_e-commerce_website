@@ -1,4 +1,4 @@
-// import { Furniture } from "./furniture";
+import { Furniture } from "./furniture";
 
 /**
  * Describe the BasketItem object and what it contains.
@@ -10,6 +10,7 @@ export class BasketItem {
     /**
      * @constructs BasketItem
      * @param {Furniture} furniture - A Furniture Object
+     * @param {string} customisation - Furniture customisation choice
      * @param {number} quantity - The quantity of this Furniture in basket
      */
 

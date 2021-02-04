@@ -1,5 +1,6 @@
 import { getFurniture } from "./modules/get-furniture";
 import { getDataElement } from "./modules/get-data-element";
+import { BasketItem } from "./classes/basket-item";
 
 generateItemPage();
 
@@ -54,6 +55,9 @@ function setupAddToBasketButton(item) {
         event.preventDefault();
 
         const quantity = parseInt(event.target.quantity_input.value);
+        const customisation = event.target.customisation_select;
+
+        const basket_item = new BasketItem(item, customisation, quantity);
         //addToBasket(item.id, quantity);
 
         //updateBasketDisplay();
