@@ -1,4 +1,9 @@
 import { getDataElement } from "./modules/get-data-element";
+import { BasketStorage } from "./classes/basket-storage";
+
+const basket_storage = new BasketStorage;
+const basket_quantity_in_page = getDataElement("basket-quantity");
+basket_quantity_in_page = basket_storage.getBasketItemNumber();
 
 generateItemsListPage();
 

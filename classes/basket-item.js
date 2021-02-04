@@ -19,4 +19,8 @@ export class BasketItem {
         this.customisation = customisation;
         this.quantity = quantity;
     }
+
+    getBasketItemTotalPrice() {
+        return this.furniture.price * this.quantity;
+    }
 }
