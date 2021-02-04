@@ -7,10 +7,7 @@ function generateItemPage() {
     }
     getProduct(item_id)
         .catch(returnToHomePage)
-        .then((item) => {
-            insertDataInPage(item);
-            setupAddToBasketButton(item);
-        });
+        .then(insertDataInPage)
 }
 
 function getProductIdFromURL() {
@@ -44,19 +41,29 @@ function insertDataInPage(item) {
         varnish_option.textContent = varnish;
         item_customisation_options.appendChild(varnish_option);
     });
-}
-
-function setupAddToBasketButton(item) {
-    const my_basket = new Basket;
 
     const add_to_basket_form = getDataElement("basket-add-form");
+    add_to_basket_form.id = item.id;
     add_to_basket_form.addEventListener("submit", (event) => {
         event.preventDefault();
 
         const quantity = parseInt(event.target.quantity_input.value);
-        my_basket_item = new BasketItem(item.id, quantity);
-        my_basket.add(my_basket_item);
+        addToBasket(add_to_basket_form.id, quantity);
+
+        updateBasketDisplay();
 
         add_to_basket_form.reset();
     });
+}
+
+function addToBasket(item_id, quantity) {
+    let item_stored_quantity = window.localStorage.getItem(item_id);
+
+    if (!item_stored_quantity) {
+        window.localStorage.setItem(item_id, quantity);
+        return;
+    }
+
+    let item_new_quantity = parseInt(item_stored_quantity) + quantity;
+    window.localStorage.setItem(item_id, item_new_quantity);
 }
