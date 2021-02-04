@@ -9,7 +9,7 @@
  * @returns {HTMLElement} First element matching the data attribute's value
  */
 
-function getDataElement(data_attribute_value, search_scope = document) {
+export function getDataElement(data_attribute_value, search_scope = document) {
     const element = search_scope.querySelector(`[data='${data_attribute_value}']`);
 
     if (!(element instanceof HTMLElement)) {

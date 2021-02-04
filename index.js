@@ -1,3 +1,5 @@
+import { getDataElement } from "./modules/get-data-element";
+
 generateItemsListPage();
 
 function generateItemsListPage() {

@@ -5,7 +5,7 @@
  * @class BasketItem
  */
 
-class BasketItem {
+export class BasketItem {
 
     /**
      * @constructs BasketItem
@@ -13,8 +13,9 @@ class BasketItem {
      * @param {number} quantity - The quantity of this Furniture in basket
      */
 
-    constructor(furniture, quantity) {
+    constructor(furniture, customisation, quantity) {
         this.furniture = furniture;
+        this.customisation = customisation;
         this.quantity = quantity;
     }
 }

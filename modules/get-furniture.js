@@ -3,13 +3,15 @@
  * Uses the API to fetch the item.
  * Throws an error with error status if the item could not be retrieved.
  *
- * @function getProduct
- * @param {number} item_id - ID of the item queried
+ * @function getFurniture
+ * @param {string} item_id - ID of the item queried
 
- * @returns {Object} Object matching the item's id
+ * @returns {Furniture} Furniture object matching the item's id
  */
 
-async function getProduct(item_id) {
+import { Furniture } from "../classes/furniture";
+
+export async function getFurniture(item_id) {
     const item = await fetch(`http://localhost:3000/api/furniture/${item_id}`);
 
     if (!item.ok) {

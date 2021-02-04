@@ -3,7 +3,7 @@
  * @class Furniture
  */
 
-class Furniture {
+export class Furniture {
 
     /**
      * @constructs Furniture
