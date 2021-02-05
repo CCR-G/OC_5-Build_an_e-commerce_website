@@ -2,6 +2,7 @@ import { getFurniture } from "./modules/get-furniture";
 import { getDataElement } from "./modules/get-data-element";
 import { BasketItem } from "./classes/basket-item";
 import { BasketStorage } from "./classes/basket-storage";
+import { setBasketQuantity } from "./modules/set-basket-quantity";
 
 generateItemPage();
 
@@ -20,11 +21,6 @@ function generateItemPage() {
             setupAddToBasketButton(basket_storage, item);
             setBasketQuantity(basket_storage);
         });
-}
-
-function setBasketQuantity(basket_storage) {
-    const basket_quantity_in_page = getDataElement("basket-quantity");
-    basket_quantity_in_page.textContent = basket_storage.getItemsNumber();
 }
 
 function getFurnitureIdFromURL() {
