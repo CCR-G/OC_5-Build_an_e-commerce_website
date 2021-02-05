@@ -1,3 +1,5 @@
+import { Furniture } from "../classes/furniture";
+
 /**
  * Returns an object corresponding to the item's id passed as argument.
  * Uses the API to fetch the item.
@@ -8,9 +10,6 @@
 
  * @returns {Furniture} Furniture object matching the item's id
  */
-
-import { Furniture } from "../classes/furniture";
-
 export async function getFurniture(item_id) {
     const item = await fetch(`http://localhost:3000/api/furniture/${item_id}`);
 

@@ -1,17 +1,30 @@
 import { getFurniture } from "./modules/get-furniture";
 import { getDataElement } from "./modules/get-data-element";
 import { BasketItem } from "./classes/basket-item";
+import { BasketStorage } from "./classes/basket-storage";
 
 generateItemPage();
 
 function generateItemPage() {
+    const basket_storage = new BasketStorage;
+
     const item_id = getFurnitureIdFromURL();
     if (!item_id) {
         returnToHomePage();
     }
+
     getFurniture(item_id)
         .catch(returnToHomePage)
-        .then(insertDataInPage)
+        .then((item) => {
+            insertDataInPage(item);
+            setupAddToBasketButton(basket_storage, item);
+            setBasketQuantity(basket_storage);
+        });
+}
+
+function setBasketQuantity(basket_storage) {
+    const basket_quantity_in_page = getDataElement("basket-quantity");
+    basket_quantity_in_page.textContent = basket_storage.getItemsNumber();
 }
 
 function getFurnitureIdFromURL() {
@@ -45,11 +58,9 @@ function insertDataInPage(item) {
         varnish_option.textContent = varnish;
         item_customisation_options.appendChild(varnish_option);
     });
-
-    setupAddToBasketButton(item);
 }
 
-function setupAddToBasketButton(item) {
+function setupAddToBasketButton(basket_storage, item) {
     const add_to_basket_form = getDataElement("basket-add-form");
     add_to_basket_form.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -58,10 +69,10 @@ function setupAddToBasketButton(item) {
         const customisation = event.target.customisation_select;
 
         const basket_item = new BasketItem(item, customisation, quantity);
-        //addToBasket(item.id, quantity);
-
-        //updateBasketDisplay();
+        basket_storage.add(basket_item);
 
         add_to_basket_form.reset();
+
+        setBasketQuantity(basket_storage);
     });
 }
