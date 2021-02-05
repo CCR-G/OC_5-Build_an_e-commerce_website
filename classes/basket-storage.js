@@ -29,11 +29,11 @@ export class Basket {
     }
 
     add(basket_item) {
-        if (!this.basket_storage[basket_item.furniture.id]) {
-            this.basket_storage[basket_item.furniture.id] = basket_item;
+        if (!this.basket_storage[basket_item.furniture._id]) {
+            this.basket_storage[basket_item.furniture._id] = basket_item;
         }
         else {
-            this.basket_storage[basket_item.furniture.id].addToQuantity(basket_item.quantity);
+            this.basket_storage[basket_item.furniture._id].addToQuantity(basket_item.quantity);
         }
 
         this.updateLocalStorage();

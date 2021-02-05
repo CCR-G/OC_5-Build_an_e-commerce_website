@@ -1,6 +1,7 @@
 import { getDataElement } from "./modules/get-data-element";
 import { Basket } from "./classes/basket-storage";
 import { setBasketQuantity } from "./modules/set-basket-quantity";
+import { insertFurnitureInformation } from "./modules/insert_furniture_information";
 
 generateItemsListPage();
 
@@ -36,21 +37,8 @@ function insertItemCardsInPage(furnitures_list) {
 
 function createFurnitureCard(item) {
     let item_card_template = getDataElement("item-card-template");
-
     let item_card_iteration = document.importNode(item_card_template.content, true);
-
-    let card_name = getDataElement("item-name", item_card_iteration);
-    card_name.textContent = item.name;
-
-    let card_price = getDataElement("item-price", item_card_iteration);
-    card_price.textContent = item.price;
-
-    let card_link = getDataElement("item-link", item_card_iteration);
-    card_link.href = `item.html?id=${item._id}`;
-    card_link.title = `Naviguer vers la page ${item.name}`;
-
-    let card_image = getDataElement("item-image", item_card_iteration);
-    card_image.src = item.imageUrl;
+    insertFurnitureInformation(item, item_card_iteration);
 
     return item_card_iteration;
 }

@@ -3,6 +3,7 @@ import { getDataElement } from "./modules/get-data-element";
 import { BasketItem } from "./classes/basket-item";
 import { Basket } from "./classes/basket-storage";
 import { setBasketQuantity } from "./modules/set-basket-quantity";
+import { insertFurnitureInformation } from "./modules/insert_furniture_information";
 
 generateItemPage();
 
@@ -17,7 +18,7 @@ function generateItemPage() {
     getFurniture(item_id)
         .catch(returnToHomePage)
         .then((item) => {
-            insertDataInPage(item);
+            insertFurnitureInformation(item);
             setupAddToBasketButton(basket, item);
             setBasketQuantity(basket);
         });
@@ -33,27 +34,6 @@ function getFurnitureIdFromURL() {
 
 function returnToHomePage() {
     //window.location = "index.html";
-}
-
-function insertDataInPage(item) {
-    const item_name = getDataElement("item-name");
-    item_name.textContent = item.name;
-
-    const item_price = getDataElement("item-price");
-    item_price.textContent = item.price;
-
-    const item_description = getDataElement("item-description");
-    item_description.textContent = item.description;
-
-    const item_image = getDataElement("item-image");
-    item_image.src = item.imageUrl;
-
-    const item_customisation_options = getDataElement("item-customisation");
-    item.varnish.forEach(varnish => {
-        const varnish_option = document.createElement("option");
-        varnish_option.textContent = varnish;
-        item_customisation_options.appendChild(varnish_option);
-    });
 }
 
 function setupAddToBasketButton(basket, item) {

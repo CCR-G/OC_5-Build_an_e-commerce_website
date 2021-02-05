@@ -1,6 +1,7 @@
 import { setBasketQuantity } from "./modules/set-basket-quantity";
 import { Basket } from "./classes/basket-storage";
 import { getDataElement } from "./modules/get-data-element";
+import { insertFurnitureInformation } from "./modules/insert_furniture_information";
 
 generateBasketPage();
 
@@ -26,18 +27,9 @@ function generateBasketPage() {
 
 function createBasketItemCard(basket_item) {
     let basket_item_template = getDataElement("basket-item-template");
-
     let basket_item_clone = document.importNode(basket_item_template.content, true);
 
-    let item_name = getDataElement("item-name", basket_item_clone);
-    item_name.textContent = basket_item.furniture.name;
-
-    let item_link = getDataElement("item-link", basket_item_clone);
-    item_link.href = `item.html?id=${basket_item._id}`;
-    item_link.title = `Naviguer vers la page ${basket_item.name}`;
-
-    let item_price = getDataElement("item-price", basket_item_clone);
-    item_price.textContent = basket_item.furniture.price;
+    insertFurnitureInformation(basket_item.furniture, basket_item_clone);
 
     let item_quantity = getDataElement("item-quantity", basket_item_clone);
     item_quantity.textContent = basket_item.quantity;
