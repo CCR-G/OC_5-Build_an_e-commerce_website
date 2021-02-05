@@ -1,4 +1,4 @@
-import { BasketStorage } from "../classes/basket-storage";
+import { Basket } from "../classes/basket-storage";
 import { getDataElement } from "../modules/get-data-element";
 
 /**
@@ -7,11 +7,11 @@ import { getDataElement } from "../modules/get-data-element";
  * Throws an error with error status if the item could not be retrieved.
  *
  * @function setBasketQuantity
- * @param {BasketStorage} basket_storage - Basket storage
+ * @param {Basket} basket - Basket storage
 
  * @returns {void} Only acts on DOM
  */
-export function setBasketQuantity(basket_storage) {
+export function setBasketQuantity(basket) {
     const basket_quantity_in_page = getDataElement("basket-quantity");
-    basket_quantity_in_page.textContent = basket_storage.getItemsNumber();
+    basket_quantity_in_page.textContent = basket.getItemsNumber();
 }

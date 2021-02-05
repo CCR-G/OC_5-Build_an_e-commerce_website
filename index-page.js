@@ -1,12 +1,12 @@
 import { getDataElement } from "./modules/get-data-element";
-import { BasketStorage } from "./classes/basket-storage";
+import { Basket } from "./classes/basket-storage";
 import { setBasketQuantity } from "./modules/set-basket-quantity";
 
 generateItemsListPage();
 
 function generateItemsListPage() {
-    const basket_storage = new BasketStorage;
-    setBasketQuantity(basket_storage);
+    const basket = new Basket;
+    setBasketQuantity(basket);
 
     getFurnituresList()
         .catch((error) => {

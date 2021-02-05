@@ -1,23 +1,22 @@
 import { BasketItem } from "./basket-item";
 
-export class BasketStorage {
+export class Basket {
     basket_storage = {}
 
     constructor() {
-        this.updateBasketStorage();
-        window.addEventListener('storage', this.updateBasketStorage); // This will be used when several pages are open
+        this.updateBasket();
+        window.addEventListener('storage', this.updateBasket); // This will be used when several pages are open
     }
 
-    updateBasketStorage() {
-        // retrieves localStorage and updates basket_storage
-        // basket_storage is filled from json in localstorage basket key;
-        // uses BasketItem to fill basket_storage
+    updateBasket() {
+        // retrieves localStorage and updates basket
+        // basket is filled from json in localstorage basket key;
+        // uses BasketItem to fill basket
         // is asynchronous since it needs to use getFurniture();
 
-        // Maybe create a custom event and use CustomEvent.detail to pass along what changed
+        // Maybe create a custom event to dispatch and use CustomEvent.detail to pass along what changed
         // Maybe this customEvent should be in add and clear methods
         // Should the event bubble?
-
 
         const local_storage_basket = window.localStorage.getItem("basket");
         if (local_storage_basket) {
@@ -55,15 +54,18 @@ export class BasketStorage {
     }
 
     getBasketTotalPrice() {
-        const basket_total_price = 0;
-        for (const basket_item in this.basket_storage) {
-            total_price += basket_item.getBasketItemTotalPrice();
+        let basket_total_price = 0;
+        for (const basket_item_id in this.basket_storage) {
+            basket_total_price += this.basket_storage[basket_item_id].getBasketItemTotalPrice();
         }
         return basket_total_price;
     }
 
+    getBasketStorage() {
+        return this.basket_storage;
+    }
+
     updateLocalStorage() {
-        // turn basket_storage into a json and sets basket key in local storage to that json
         // should only send the id of furniture
 
         const my_json = JSON.stringify(this.basket_storage);
