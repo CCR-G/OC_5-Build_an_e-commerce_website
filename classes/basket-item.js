@@ -15,6 +15,7 @@ export class BasketItem {
      */
 
     constructor(furniture, customisation, quantity) {
+        this._id = furniture._id + customisation;
         this.furniture = furniture;
         this.customisation = customisation;
         this.quantity = quantity;
@@ -25,6 +26,10 @@ export class BasketItem {
         Object.defineProperties(this, {
             'quantityToBeAdded' : { set: quantity_to_be_added => {this.quantity += quantity_to_be_added}}
         });*/
+
+        this.updated_quantity_event = new CustomEvent('updated_quantity', {
+            detail: { updated_basket_item: this }
+        });
     }
 
     getBasketItemTotalPrice() {
@@ -37,5 +42,17 @@ export class BasketItem {
 
     removeFromQuantity(quantity_to_be_removed) {
         this.quantity = quantity_to_be_removed ? quantity_to_be_removed : 0;
+    }
+
+    clear() {
+        this.quantity = 0;
+
+        window.dispatchEvent(this.updated_quantity_event);
+    }
+
+    updateQuantity(updated_quantity) {
+        this.quantity = updated_quantity;
+
+        window.dispatchEvent(this.updated_quantity_event);
     }
 }

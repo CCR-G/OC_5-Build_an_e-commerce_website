@@ -1,13 +1,11 @@
 import { getDataElement } from "./modules/get-data-element";
 import { Basket } from "./classes/basket-storage";
-import { setBasketQuantity } from "./modules/set-basket-quantity";
 import { insertFurnitureInformation } from "./modules/insert_furniture_information";
 
 generateItemsListPage();
 
 function generateItemsListPage() {
     const basket = new Basket;
-    setBasketQuantity(basket);
 
     getFurnituresList()
         .catch((error) => {

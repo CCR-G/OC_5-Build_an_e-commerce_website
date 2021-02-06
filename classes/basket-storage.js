@@ -1,3 +1,4 @@
+import { setBasketQuantity } from "../modules/set-basket-quantity";
 import { BasketItem } from "./basket-item";
 
 export class Basket {
@@ -5,7 +6,13 @@ export class Basket {
 
     constructor() {
         this.updateBasket();
-        window.addEventListener('storage', this.updateBasket); // This will be used when several pages are open
+        setBasketQuantity(this);
+
+        //window.addEventListener('storage', this.updateBasket); // This will be used when several pages are open
+
+        window.addEventListener('updated_quantity', (event) => {
+            this.replaceItem(event.detail.updated_basket_item)
+        });
     }
 
     updateBasket() {
@@ -28,13 +35,26 @@ export class Basket {
         }
     }
 
+    replaceItem(basket_item) {
+        this.basket_storage[basket_item._id] = basket_item;
+
+        if (!this.basket_storage[basket_item._id].quantity) {
+            delete this.basket_storage[basket_item._id];
+        }
+
+        setBasketQuantity(this);
+        this.updateLocalStorage();
+    }
+
     add(basket_item) {
-        if (!this.basket_storage[basket_item.furniture._id]) {
-            this.basket_storage[basket_item.furniture._id] = basket_item;
+        if (!this.basket_storage[basket_item._id]) {
+            this.basket_storage[basket_item._id] = basket_item;
         }
         else {
-            this.basket_storage[basket_item.furniture._id].addToQuantity(basket_item.quantity);
+            this.basket_storage[basket_item._id].addToQuantity(basket_item.quantity);
         }
+
+        console.log("Tartenpion");
 
         this.updateLocalStorage();
     }

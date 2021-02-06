@@ -1,4 +1,3 @@
-import { setBasketQuantity } from "./modules/set-basket-quantity";
 import { Basket } from "./classes/basket-storage";
 import { getDataElement } from "./modules/get-data-element";
 import { insertFurnitureInformation } from "./modules/insert_furniture_information";
@@ -7,10 +6,12 @@ generateBasketPage();
 
 function generateBasketPage() {
     let basket = new Basket;
-    setBasketQuantity(basket);
 
     const page_total_price = getDataElement("basket-price");
     page_total_price.textContent = basket.getBasketTotalPrice();
+    window.addEventListener('updated_quantity', () => {
+        page_total_price.textContent = basket.getBasketTotalPrice();
+    });
 
     const clear_basket_button = getDataElement("basket-clear");
     clear_basket_button.addEventListener("click", () => {
@@ -31,8 +32,26 @@ function createBasketItemCard(basket_item) {
 
     insertFurnitureInformation(basket_item.furniture, basket_item_clone);
 
-    let item_quantity = getDataElement("item-quantity", basket_item_clone);
-    item_quantity.textContent = basket_item.quantity;
+    let basket_item_quantity = getDataElement("basket-item-quantity", basket_item_clone);
+    basket_item_quantity.value = basket_item.quantity;
+    basket_item_quantity.addEventListener("change", () => {
+        let updated_quantity = parseInt(basket_item_quantity.value);
+        if (updated_quantity >= 0) {
+            basket_item.updateQuantity(updated_quantity);
+        }
+        else {
+            basket_item_quantity.value = basket_item.quantity;
+        }
+    });
+
+    let basket_item_customisation = getDataElement("basket-item-customisation", basket_item_clone);
+    basket_item_customisation.textContent = basket_item.customisation;
+
+    let basket_item_clear_button = getDataElement("basket-item-clear", basket_item_clone);
+    basket_item_clear_button.addEventListener("click", () => {
+        basket_item.clear();
+        basket_item_quantity.value = basket_item.quantity;
+    });
 
     return basket_item_clone;
 }

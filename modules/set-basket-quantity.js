@@ -14,4 +14,8 @@ import { getDataElement } from "../modules/get-data-element";
 export function setBasketQuantity(basket) {
     const basket_quantity_in_page = getDataElement("basket-quantity");
     basket_quantity_in_page.textContent = basket.getItemsNumber();
+    window.addEventListener('storage', () => {
+        console.log("TESTEST")
+        basket_quantity_in_page.textContent = basket.getItemsNumber();
+    });
 }
