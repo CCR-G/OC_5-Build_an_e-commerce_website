@@ -1,0 +1,29 @@
+{
+  "name": "orinoco",
+  "version": "1.0.0",
+  "description": "**Projet 5 - Construisez un site e-commerce** <br>\r OpenClassrooms - Web developper training",
+  "main": "index-page.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-webpack-plugin": "^2.5.0",
+    "sass": "^1.32.7",
+    "sass-loader": "^11.0.1",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.1.5",
+    "webpack": "^5.21.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCR-G/5_07012021.git"
+  },
+  "author": "CCR-G",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CCR-G/5_07012021/issues"
+  },
+  "homepage": "https://github.com/CCR-G/5_07012021#readme"
+}
