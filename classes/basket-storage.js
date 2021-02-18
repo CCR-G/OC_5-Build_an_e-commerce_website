@@ -54,8 +54,6 @@ export class Basket {
             this.basket_storage[basket_item._id].addToQuantity(basket_item.quantity);
         }
 
-        console.log("Tartenpion");
-
         this.updateLocalStorage();
     }
 
@@ -71,6 +69,10 @@ export class Basket {
             items_number += this.basket_storage[basket_item_id].quantity;
         }
         return items_number;
+    }
+
+    isEmpty() {
+        return this.getItemsNumber() === 0;
     }
 
     getBasketTotalPrice() {
