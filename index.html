@@ -7,7 +7,7 @@
     </title>
 
     <base href="index.html" />
-    <link rel="stylesheet" type="text/css" href="styles/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
 
     <meta charset="UTF-8" />
     <meta name="title" content="orinoco" />
@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <main data="item-cards-container">
+    <main data="item-cards-container" class="item-cards-container">
     </main>
 </body>
 
@@ -33,15 +33,15 @@
 
 <!-- ITEM START -->
 <template data="item-card-template">
-    <article>
+    <article class="item-card">
         <a data="item-link" href="" title="Naviguer vers la page 'xxx'">
             <!-- href & title -->
             <div class="image-container">
                 <img data="item-image" aria-hidden="true" src="" width="100px" alt=""> <!-- src -->
             </div>
             <div class="card-label">
-                <span data="item-name"></span>
-                <span><span data="item-price"></span> €</span>
+                <span data="item-name" class="card-label__title"></span>
+                <span class="card-label__price"><span data="item-price"></span> €</span>
             </div>
         </a>
     </article>
