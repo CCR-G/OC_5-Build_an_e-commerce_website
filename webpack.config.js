@@ -46,7 +46,7 @@ module.exports = {
         rules: [
             //The test property identifies which file or files should be transformed.
             //The use property indicates which loader should be used to do the transforming.
-            { test: /\.s?[ac]ss$/i, use: [MiniCssExtractPlugin.loader, "css-loader"] },
+            { test: /\.s?[ac]ss$/i, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
         ]
     },
 };

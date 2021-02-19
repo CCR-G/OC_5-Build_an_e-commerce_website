@@ -1,0 +1,18 @@
+@import "../styles/base.scss";
+
+ul {
+    padding-left: 0;
+}
+
+.basket-item-card {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+}

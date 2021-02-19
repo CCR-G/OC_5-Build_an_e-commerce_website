@@ -1,7 +1,7 @@
 import { getDataElement } from "../modules/get-data-element";
 import { insertFurnitureInformation } from "../modules/insert_furniture_information";
 
-import "../styles/styles.css";
+import "../styles/index.scss";
 
 generateItemsListPage();
 

@@ -1,0 +1,12 @@
+@import "../styles/base.scss";
+
+.image-container {
+display: flex;
+height: 200px;
+overflow: hidden;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}

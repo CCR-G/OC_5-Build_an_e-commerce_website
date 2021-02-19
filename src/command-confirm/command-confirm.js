@@ -1,6 +1,6 @@
 import { getDataElement } from "../modules/get-data-element";
 
-import "../styles/styles.css";
+import "../styles/base.scss";
 
 generateCommandConfirmPage();
 

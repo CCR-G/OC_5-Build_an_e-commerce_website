@@ -4,7 +4,7 @@ import { Contact } from "../classes/contact";
 import { getDataElement } from "../modules/get-data-element";
 import { insertFurnitureInformation } from "../modules/insert_furniture_information";
 
-import "../styles/styles.css";
+import "../styles/basket.scss";
 
 generateBasketPage();
 
