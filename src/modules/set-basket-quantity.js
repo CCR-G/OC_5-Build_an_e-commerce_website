@@ -1,5 +1,5 @@
 import { Basket } from "../classes/basket-storage";
-import { getDataElement } from "../modules/get-data-element";
+import { getDataElement } from "./get-data-element";
 
 /**
  * Returns an object corresponding to the item's id passed as argument.

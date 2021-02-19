@@ -1,4 +1,6 @@
-import { getDataElement } from "./modules/get-data-element";
+import { getDataElement } from "../modules/get-data-element";
+
+import "../styles/styles.css";
 
 generateCommandConfirmPage();
 

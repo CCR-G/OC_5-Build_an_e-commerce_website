@@ -2,9 +2,9 @@ import { setBasketQuantity } from "../modules/set-basket-quantity";
 import { BasketItem } from "./basket-item";
 
 export class Basket {
-    basket_storage = {}
-
     constructor() {
+        this.basket_storage = {};
+
         this.updateBasket();
         setBasketQuantity(this);
 

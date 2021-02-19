@@ -6,10 +6,6 @@
 import { Contact } from "./contact";
 
 export class CommandRequest {
-
-    contact = {};
-    products = [];
-
     /**
      * @constructs CommandRequest
      * @param {Contact} contact - A Furniture Object

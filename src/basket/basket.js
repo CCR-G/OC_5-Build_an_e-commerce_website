@@ -1,8 +1,10 @@
-import { Basket } from "./classes/basket-storage";
-import { CommandRequest } from "./classes/command-request";
-import { Contact } from "./classes/contact";
-import { getDataElement } from "./modules/get-data-element";
-import { insertFurnitureInformation } from "./modules/insert_furniture_information";
+import { Basket } from "../classes/basket-storage";
+import { CommandRequest } from "../classes/command-request";
+import { Contact } from "../classes/contact";
+import { getDataElement } from "../modules/get-data-element";
+import { insertFurnitureInformation } from "../modules/insert_furniture_information";
+
+import "../styles/styles.css";
 
 generateBasketPage();
 

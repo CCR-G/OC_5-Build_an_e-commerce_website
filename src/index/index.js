@@ -1,12 +1,11 @@
-import { getDataElement } from "./modules/get-data-element";
-import { Basket } from "./classes/basket-storage";
-import { insertFurnitureInformation } from "./modules/insert_furniture_information";
+import { getDataElement } from "../modules/get-data-element";
+import { insertFurnitureInformation } from "../modules/insert_furniture_information";
+
+import "../styles/styles.css";
 
 generateItemsListPage();
 
 function generateItemsListPage() {
-    const basket = new Basket;
-
     getFurnituresList()
         .catch((error) => {
             console.log(error.message);
