@@ -32,7 +32,7 @@ export class BasketItem {
         });
     }
 
-    getBasketItemTotalPrice() {
+    get totalPrice() {
         return this.furniture.price * this.quantity;
     }
 

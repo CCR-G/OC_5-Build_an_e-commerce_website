@@ -63,7 +63,7 @@ export class Basket {
         this.updateLocalStorage();
     }
 
-    getItemsNumber() {
+    get quantity() {
         let items_number = 0;
         for (const basket_item_id in this.basket_storage) {
             items_number += this.basket_storage[basket_item_id].quantity;
@@ -71,19 +71,19 @@ export class Basket {
         return items_number;
     }
 
-    isEmpty() {
-        return this.getItemsNumber() === 0;
+    get isEmpty() {
+        return this.quantity === 0;
     }
 
-    getBasketTotalPrice() {
+    get totalPrice() {
         let basket_total_price = 0;
         for (const basket_item_id in this.basket_storage) {
-            basket_total_price += this.basket_storage[basket_item_id].getBasketItemTotalPrice();
+            basket_total_price += this.basket_storage[basket_item_id].totalPrice;
         }
         return basket_total_price;
     }
 
-    getBasketStorage() {
+    get content() {
         return this.basket_storage;
     }
 

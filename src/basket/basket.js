@@ -14,7 +14,7 @@ function generateBasketPage() {
     const basket_item_cards_container = getDataElement("basket-items-container");
     basket_item_cards_container.innerText = "";
 
-    const basket_storage = basket.getBasketStorage();
+    const basket_storage = basket.content;
     for (const basket_item_id in basket_storage) {
         const basket_item = basket_storage[basket_item_id];
         const basket_item_card = createBasketItemCard(basket_item);
@@ -22,9 +22,9 @@ function generateBasketPage() {
     }
 
     const page_total_price = getDataElement("basket-price");
-    page_total_price.textContent = basket.getBasketTotalPrice();
+    page_total_price.textContent = basket.totalPrice;
     window.addEventListener('updated_quantity', () => {
-        page_total_price.textContent = basket.getBasketTotalPrice();
+        page_total_price.textContent = basket.totalPrice;
     });
 
     const clear_basket_button = getDataElement("basket-clear");
@@ -69,16 +69,16 @@ function createBasketItemCard(basket_item) {
 function setupSendCommandForm(basket) {
     let form = getDataElement("send-command-form");
 
-    let basket_items = basket.getBasketStorage();
-    if (basket.isEmpty()) {
+    let basket_items = basket.content;
+    if (basket.isEmpty) {
         form.submit.disabled = true;
     }
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        let basket_items = basket.getBasketStorage();
-        if (basket.isEmpty()) {
+        let basket_items = basket.content;
+        if (basket.isEmpty) {
             alert("No items in basket, please fill your basket with our fantastic furnitures!");
             return;
         }
@@ -86,7 +86,7 @@ function setupSendCommandForm(basket) {
         const command_request = createCommandRequest(form, basket_items);
 
         postCommandOrder(command_request).then((order_id) => {
-            const order_summary = { order_id: order_id.orderId, order_price: basket.getBasketTotalPrice() }
+            const order_summary = { order_id: order_id.orderId, order_price: basket.totalPrice }
             const my_json = JSON.stringify(order_summary);
             window.localStorage.setItem("last-order", my_json);
 
