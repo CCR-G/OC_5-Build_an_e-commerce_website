@@ -1,7 +1,5 @@
 import { getDataElement } from "../modules/get-data-element";
 
-import "../styles/base.scss";
-
 generateCommandConfirmPage();
 
 function generateCommandConfirmPage() {

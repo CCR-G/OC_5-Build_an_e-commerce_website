@@ -1,6 +1,4 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     //This generates the JS files
@@ -37,16 +35,12 @@ module.exports = {
             chunks: ['command-confirm'],
             filename: 'command-confirm.html',
         }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            insert: 'document.head.appendChild(linkTag)',
-        }),
     ],
     module: {
         rules: [
             //The test property identifies which file or files should be transformed.
             //The use property indicates which loader should be used to do the transforming.
-            { test: /\.s?[ac]ss$/i, use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"] },
+            //{ test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader'] },
         ]
     },
 };

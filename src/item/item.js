@@ -4,8 +4,6 @@ import { getDataElement } from "../modules/get-data-element";
 import { BasketItem } from "../classes/basket-item";
 import { insertFurnitureInformation } from "../modules/insert_furniture_information";
 
-import "../styles/item.scss";
-
 generateItemPage();
 
 function generateItemPage() {
