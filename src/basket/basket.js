@@ -8,21 +8,20 @@ generateBasketPage();
 function generateBasketPage() {
     const basket = new Basket;
 
-    BasketUserInterface.content = null;
-    BasketUserInterface.content = basket.content;
+    BasketUserInterface.basketContent = basket.content;
     BasketUserInterface.totalPrice = basket.totalPrice
-
-    BasketUserInterface.proposeToClearBasket();
-    document.addEventListener("clear_basket_button_clicked", () => {
-        basket.clear();
-        generateBasketPage();
-        setBasketQuantity();
-    });
 
     if (basket.isEmpty) {
         BasketUserInterface.disableCommandRequest();
     }
 
+    BasketUserInterface.proposeToClearBasket();
+    document.addEventListener("CLEAR_BASKET_BUTTON_CLICKED", () => {
+        basket.clear();
+        generateBasketPage();
+        setBasketQuantity();
+    });
+
     BasketUserInterface.proposeToCommandBasketContent();
-    document.addEventListener("command_form_sent", handleCommandFormSentEvent)
+    document.addEventListener("COMMAND_FORM_SENT", handleCommandFormSentEvent)
 }

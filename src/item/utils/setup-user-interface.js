@@ -4,19 +4,21 @@ import { setBasketQuantity } from "../../common/set-basket-quantity";
 import { FurnitureUserInterface } from "../../user-interfaces/furniture-user-interface";
 
 export function setupUserInterface(item) {
-    const basket = new Basket;
-
     FurnitureUserInterface.furnitureDetails = item;
-    FurnitureUserInterface.proposeToAddToBasket();
 
-    document.addEventListener("add_to_basket_form_sent", (event) => {
-        basket.add(
-            new BasketItem(
-                item,
-                event.detail.customisation,
-                event.detail.quantity
-            )
-        );
-        setBasketQuantity();
-    });
+    FurnitureUserInterface.proposeToAddToBasket();
+    document.addEventListener("ADD_TO_BASKET_FORM_SENT", addFurnitureToBasket)
 }
+
+function addFurnitureToBasket(event) {
+    const basket = new Basket;
+    basket.add(
+        new BasketItem(
+            item,
+            event.detail.customisation,
+            event.detail.quantity
+        )
+    );
+
+    setBasketQuantity();
+};

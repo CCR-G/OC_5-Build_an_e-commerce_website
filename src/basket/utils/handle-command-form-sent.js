@@ -1,6 +1,7 @@
 import { postCommandOrder } from "../../api/post-command-order";
 import { Basket } from "../../classes/basket-storage";
 import { Contact } from "../../classes/contact";
+import { LOCAL_STORAGE } from "../../local-storage";
 import { Router } from "../../router";
 import { createCommandRequest } from "./create-command-request";
 
@@ -32,8 +33,7 @@ function handleCommandOrderPosted(order_id, basket) {
         order_id: order_id.orderId,
         order_price: basket.totalPrice,
     }
-    const my_json = JSON.stringify(order_summary);
-    window.localStorage.setItem("last-order", my_json);
+    LOCAL_STORAGE.lastOrder(order_summary);
 
     Router.command();
     basket.clear();

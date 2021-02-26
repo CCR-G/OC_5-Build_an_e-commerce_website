@@ -3,9 +3,9 @@ import { getFurnituresList } from "../api/get-furniture-list";
 
 getFurnituresList()
     .catch((error) => {
-        console.log(error.message);
+        throw new Error(error.message);
     })
     .then((furnitures_list) => {
-        FurnituresListUserInterface.furnituresList = furnitures_list;
+        FurnituresListUserInterface.content = furnitures_list;
     });
 

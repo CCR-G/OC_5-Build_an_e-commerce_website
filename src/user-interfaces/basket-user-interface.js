@@ -2,12 +2,12 @@ import { createBasketItemCard } from "./utils/create-basket-item-card";
 import { getDataElement } from "./utils/get-data-element";
 
 export const BasketUserInterface = {
-    set content(basket_content) {
+    set basketContent(basket_content) {
         const basket_item_cards_container = getDataElement("basket-items-container");
-        basket_item_cards_container.textContent = "";
+        basket_item_cards_container.textContent = ""; //This is for reseting the card container when clearing basket
 
-        for (const basket_item_id in basket_content) {
-            const basket_item = basket_content[basket_item_id];
+        for (const id in basket_content) {
+            const basket_item = basket_content[id];
             const basket_item_card = createBasketItemCard(basket_item);
             basket_item_cards_container.append(basket_item_card);
         }
@@ -36,7 +36,7 @@ export const BasketUserInterface = {
 
 function handleClearBasketEvent() {
     document.dispatchEvent(
-        new CustomEvent('clear_basket_button_clicked'),
+        new CustomEvent('CLEAR_BASKET_BUTTON_CLICKED'),
     );
 }
 
@@ -44,7 +44,7 @@ function handleCommandEvent(event) {
     event.preventDefault();
 
     document.dispatchEvent(
-        new CustomEvent('command_form_sent', {
+        new CustomEvent('COMMAND_FORM_SENT', {
             detail: {
                 full_name: event.target.full_name.value,
                 used_name: event.target.used_name.value,
