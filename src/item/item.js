@@ -1,8 +1,9 @@
 import { getFurniture } from "../modules/get-furniture";
 import { Basket } from "../classes/basket-storage";
-import { getDataElement } from "../modules/get-data-element";
 import { BasketItem } from "../classes/basket-item";
-import { insertFurnitureInformation } from "../modules/insert_furniture_information";
+
+import { FurnitureUserInterface } from "../user-interfaces/furniture-user-interface"
+import { Router } from "../router";
 
 generateItemPage();
 
@@ -11,14 +12,27 @@ function generateItemPage() {
 
     const item_id = getFurnitureIdFromURL();
     if (!item_id) {
+        //Router.home;
         returnToHomePage();
+        return;
     }
 
     getFurniture(item_id)
-        .catch(returnToHomePage)
+        .catch(() => {
+            returnToHomePage();
+            return;
+        })
         .then((item) => {
-            insertFurnitureInformation(item);
-            setupAddToBasketButton(basket, item);
+            FurnitureUserInterface.furnitureDetails = item;
+            FurnitureUserInterface.proposeToAddToBasket();
+
+            document.addEventListener("add_to_basket_form_sent", (event) => {
+                basket.add(new BasketItem(
+                    item,
+                    event.detail.customisation,
+                    event.detail.quantity
+                ));
+            });
         });
 }
 
@@ -32,19 +46,4 @@ function getFurnitureIdFromURL() {
 
 function returnToHomePage() {
     window.location = "index.html";
-}
-
-function setupAddToBasketButton(basket, item) {
-    const add_to_basket_form = getDataElement("basket-add-form");
-    add_to_basket_form.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const quantity = parseInt(add_to_basket_form.quantity_input.value);
-        const customisation = add_to_basket_form.customisation_select.value;
-
-        const basket_item = new BasketItem(item, customisation, quantity);
-        basket.add(basket_item);
-
-        add_to_basket_form.reset();
-    });
 }

@@ -42,7 +42,7 @@
 
         <section>
             <h2>Passer commande pour le contenu de votre panier</h2>
-            <form data="send-command-form">
+            <form data="command-form">
                 <label for="full-name">Full name :</label>
                 <input value="tartenpion full name" type="text" id="full-name" name="full_name" required>
                 <label for="used-name">How should we call you :</label>
@@ -74,10 +74,10 @@
         </div>
         <span>
             <label for="quantity">Quantity:</label>
-            <input type="number" data="basket-item-quantity" id="quantity" name="quantity_input" min="0" step="1"
+            <input type="number" data="basket-item-quantity-input" id="quantity" name="quantity_input" min="0" step="1"
                 required>
         </span>
-        <button data="basket-item-clear" aria-label="Clear basket item"><i aria-hidden="true">×</i></button>
+        <button data="basket-item-remove-button" aria-label="Remove basket item"><i aria-hidden="true">×</i></button>
     </li>
 </template>
 <!-- END -->

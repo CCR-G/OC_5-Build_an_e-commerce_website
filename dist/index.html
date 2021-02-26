@@ -1,1 +1,48 @@
-<!doctype html><html lang="fr"><head><title>Orinoco</title><base href="index.html"/><meta charset="UTF-8"/><meta name="title" content="orinoco"/><meta name="author" content="CCR-G"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="stylesheet" href="./style.min.css"/><script defer="defer" src="index.js"></script></head><body><header><nav><a href="index.html" rel="index" title="Go to homepage">Orinoco</a> <a href="basket.html">Panier : <span data="basket-quantity">0</span></a></nav></header><main data="item-cards-container" class="item-cards-container"></main></body><footer>© 2018 Orinoco</footer><template data="item-card-template"><article class="item-card"><a data="item-link" href="" title="Naviguer vers la page 'xxx'"><div class="image-container"><img data="item-image" aria-hidden="true" width="100px" alt=""></div><div class="card-label"><span data="item-name" class="card-label__title"></span> <span class="card-label__price"><span data="item-price"></span> €</span></div></a></article></template></html>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>
+        Orinoco
+    </title>
+
+    <base href="index.html" />
+
+    <meta charset="UTF-8" />
+    <meta name="title" content="orinoco" />
+    <meta name="author" content="CCR-G" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="./style.min.css" />
+<script defer src="index.js"></script></head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" rel="index" title="Go to homepage">Orinoco</a>
+            <a href="basket.html">Panier : <span data="basket-quantity">0</span></a>
+        </nav>
+    </header>
+
+    <main data="item-cards-container" class="item-cards-container">
+    </main>
+</body>
+
+<footer>© 2018 Orinoco</footer>
+
+<!-- ITEM START -->
+<template data="item-card-template">
+    <article class="item-card">
+        <a data="item-link" href="" title="Naviguer vers la page 'xxx'">
+            <!-- href & title -->
+            <div class="image-container">
+                <img data="item-image" aria-hidden="true" width="100px" alt="">
+            </div>
+            <div class="card-label">
+                <span data="item-name" class="card-label__title"></span>
+                <span class="card-label__price"><span data="item-price"></span> €</span>
+            </div>
+        </a>
+    </article>
+</template>
+<!-- ITEM END -->

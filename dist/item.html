@@ -1,1 +1,50 @@
-<!doctype html><html lang="fr"><head><title>Orinoco</title><base href="index.html"/><meta charset="UTF-8"/><meta name="title" content="orinoco"/><meta name="author" content="CCR-G"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="stylesheet" href="./style.min.css"/><script defer="defer" src="item.js"></script></head><body><header><nav><a href="index.html" rel="index" title="Go to homepage">Orinoco</a> <a href="basket.html">Panier : <span data="basket-quantity">0</span></a></nav></header><main><div class="image-container"><img data="item-image" width="100px" alt=""></div><div><h1 data="item-name">Item name</h1><p><span data="item-price">Item price</span> €</p><p data="item-description">Item description</p><form id="" data="basket-add-form"><label for="quantity">Quantity:</label> <input type="number" id="quantity" name="quantity_input" min="1" placeholder="1" step="1" required> <label for="customisation">Choose a customisation</label> <select data="item-customisation" name="customisation_select" id="customisation" required></select> <button type="submit">Add to basket</button></form></div></main></body><footer>© 2018 Orinoco</footer></html>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>
+        Orinoco
+    </title>
+
+    <base href="index.html" />
+
+    <meta charset="UTF-8" />
+    <meta name="title" content="orinoco" />
+    <meta name="author" content="CCR-G" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="./style.min.css" />
+<script defer src="item.js"></script></head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" rel="index" title="Go to homepage">Orinoco</a>
+            <a href="basket.html">Panier : <span data="basket-quantity">0</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="image-container">
+            <img data="item-image" width="100px" alt="">
+        </div>
+        <div>
+            <h1 data="item-name">Item name</h1>
+            <p><span data="item-price">Item price</span> €</p>
+            <p data="item-description">Item description</p>
+
+            <form id="" data="basket-add-form">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity_input" min="1" placeholder="1" step="1" required>
+
+                <label for="customisation">Choose a customisation</label>
+                <select data="item-customisation" name="customisation_select" id="customisation" required></select>
+
+                <button type="submit">Add to basket</button>
+            </form>
+
+        </div>
+    </main>
+</body>
+
+<footer>© 2018 Orinoco</footer>

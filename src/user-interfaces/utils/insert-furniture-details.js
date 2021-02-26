@@ -1,16 +1,16 @@
-import { Furniture } from "../classes/furniture";
+import { Furniture } from "../../classes/furniture"
 
 /**
  * Insert furniture's data in given HTMLElement scope.
  *
- * @function insertFurnitureInformation
+ * @function insertFurnitureDetails
  * @param {Furniture} item - Furniture item
  * @param {HTMLElement} [scope=document] - Where to look for the data attribute, defaults to the entire Document
 
  * @returns {void} Only acts on DOM
  */
 
-export function insertFurnitureInformation(item, scope = document) {
+export function insertFurnitureDetails(item, scope = document) {
     const item_name = scope.querySelector(`[data='item-name']`)
     if (item_name) {
         item_name.textContent = item.name

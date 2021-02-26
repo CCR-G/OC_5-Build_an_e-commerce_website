@@ -6,9 +6,9 @@ module.exports = {
         index: './src/index/index.js',
         item: './src/item/item.js',
         basket: './src/basket/basket.js',
-        command_confirm: './src/command-confirm/command-confirm.js',
+        command: './src/command/command.js',
     },
-    mode: 'production',
+    mode: 'development',
     //This generates the HTML files
     plugins: [
         new HtmlWebpackPlugin({
@@ -30,10 +30,10 @@ module.exports = {
             filename: 'basket.html',
         }),
         new HtmlWebpackPlugin({
-            template: './src/command-confirm/command-confirm.html',
+            template: './src/command/command.html',
             inject: true,
-            chunks: ['command-confirm'],
-            filename: 'command-confirm.html',
+            chunks: ['command'],
+            filename: 'command.html',
         }),
     ],
     module: {
