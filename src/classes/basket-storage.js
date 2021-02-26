@@ -8,10 +8,6 @@ export class Basket {
 
         this.updateBasket();
         setBasketQuantity(this);
-
-        window.addEventListener('updated_quantity', (event) => {
-            this.replaceItem(event.detail.updated_basket_item)
-        });
     }
 
     updateBasket() {
@@ -25,17 +21,6 @@ export class Basket {
                 ));
             }
         }
-    }
-
-    replaceItem(basket_item) {
-        this.basket_storage[basket_item._id] = basket_item;
-
-        if (!this.basket_storage[basket_item._id].quantity) {
-            delete this.basket_storage[basket_item._id];
-        }
-
-        setBasketQuantity(this);
-        this.updateLocalStorage();
     }
 
     add(basket_item) {

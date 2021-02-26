@@ -1,17 +1,14 @@
-import { getDataElement } from "./utils/get-data-element";
 import { createBasketItemCard } from "./utils/create-basket-item-card";
-import { BasketItemUserInterface } from "./basket-item-user-interface";
+import { getDataElement } from "./utils/get-data-element";
 
 export const BasketUserInterface = {
     set content(basket_content) {
+        const basket_item_cards_container = getDataElement("basket-items-container")
+
         for (const basket_item_id in basket_content) {
             const basket_item = basket_content[basket_item_id];
-
-            BasketItemUserInterface.basketItemDetails = basket_item;
-
-            BasketItemUserInterface.proposeToEditBasketItemQuantity(basket_item);
-
-            BasketItemUserInterface.proposeToRemoveBasketItem(basket_item);
+            const basket_item_card = createBasketItemCard(basket_item);
+            basket_item_cards_container.append(basket_item_card);
         }
     },
 

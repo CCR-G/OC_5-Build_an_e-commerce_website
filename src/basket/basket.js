@@ -57,15 +57,6 @@ function generateBasketPage() {
             window.location = "command.html";
         });
     });
-
-    document.addEventListener("basket_item_quantity_changed", (event) => {
-
-    });
-
-    document.addEventListener("basket_item_remove_button_clicked", (event) => {
-        console.log(event.detail.basket_item);
-        event.detail.basket_item.clear();
-    });
 }
 
 function createCommandRequest(contact, basket_items) {
