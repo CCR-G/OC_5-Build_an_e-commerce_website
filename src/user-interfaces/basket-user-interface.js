@@ -3,7 +3,8 @@ import { getDataElement } from "./utils/get-data-element";
 
 export const BasketUserInterface = {
     set content(basket_content) {
-        const basket_item_cards_container = getDataElement("basket-items-container")
+        const basket_item_cards_container = getDataElement("basket-items-container");
+        basket_item_cards_container.textContent = "";
 
         for (const basket_item_id in basket_content) {
             const basket_item = basket_content[basket_item_id];

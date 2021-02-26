@@ -4,6 +4,7 @@ const meta = {
     'title': "orinoco",
     'author': "CCR-G",
     'viewport': "width=device-width, initial-scale=1.0",
+    charset: { charset: 'utf-8' },
 }
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
         item: './src/item/item.js',
         basket: './src/basket/basket.js',
         command: './src/command/command.js',
+        common: './src/common/common.js'
     },
     mode: 'development',
 
@@ -46,7 +48,6 @@ module.exports = {
             chunks: ['command'],
             filename: 'command.html',
             'meta': meta,
-
         }),
     ],
     module: {

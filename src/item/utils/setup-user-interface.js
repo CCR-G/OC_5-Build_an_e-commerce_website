@@ -1,5 +1,6 @@
 import { BasketItem } from "../../classes/basket-item";
 import { Basket } from "../../classes/basket-storage";
+import { setBasketQuantity } from "../../common/set-basket-quantity";
 import { FurnitureUserInterface } from "../../user-interfaces/furniture-user-interface";
 
 export function setupUserInterface(item) {
@@ -16,5 +17,6 @@ export function setupUserInterface(item) {
                 event.detail.quantity
             )
         );
+        setBasketQuantity();
     });
 }
