@@ -1,5 +1,5 @@
-import { getDataElement } from "./utils/get-data-element";
-import { createFurnitureCard } from "./utils/create-furniture-card";
+import { getDataElement } from "../common-utils/get-data-element";
+import { createFurnitureCard } from "../common-utils/create-furniture-card";
 
 export const FurnituresListUserInterface = {
     set content(furnitures_list) {

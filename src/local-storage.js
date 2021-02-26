@@ -16,6 +16,6 @@ export const LOCAL_STORAGE = {
 
     set lastOrder(order_summary) {
         const json_last_order = JSON.stringify(order_summary);
-        window.localStorage.setItem("basket", json_last_order);
+        window.localStorage.setItem("last-order", json_last_order);
     },
 }

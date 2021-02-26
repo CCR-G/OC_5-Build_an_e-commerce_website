@@ -1,4 +1,4 @@
-import { getDataElement } from "./utils/get-data-element";
+import { getDataElement } from "../common-utils/get-data-element";
 
 export const CommandConfirmUserInterface = {
     set commandPrice(command_price) {

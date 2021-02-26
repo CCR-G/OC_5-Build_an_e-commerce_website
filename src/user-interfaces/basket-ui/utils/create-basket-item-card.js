@@ -1,5 +1,5 @@
-import { getDataElement } from "./get-data-element";
-import { insertFurnitureDetails } from "./insert-furniture-details";
+import { getDataElement } from "../../common-utils/get-data-element";
+import { insertFurnitureDetails } from "../../common-utils/insert-furniture-details";
 
 export function createBasketItemCard(basket_item) {
     let basket_item_template = getDataElement("basket-item-template");

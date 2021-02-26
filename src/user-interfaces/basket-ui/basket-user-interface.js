@@ -1,5 +1,7 @@
+import { getDataElement } from "../common-utils/get-data-element";
+
 import { createBasketItemCard } from "./utils/create-basket-item-card";
-import { getDataElement } from "./utils/get-data-element";
+import { handleClearBasketEvent, handleCommandEvent } from "./utils/handle-basket-ui-events";
 
 export const BasketUserInterface = {
     set basketContent(basket_content) {
@@ -32,28 +34,4 @@ export const BasketUserInterface = {
         const command_form = getDataElement("command-form");
         command_form.submit.disabled = true;
     },
-}
-
-function handleClearBasketEvent() {
-    document.dispatchEvent(
-        new CustomEvent('CLEAR_BASKET_BUTTON_CLICKED'),
-    );
-}
-
-function handleCommandEvent(event) {
-    event.preventDefault();
-
-    document.dispatchEvent(
-        new CustomEvent('COMMAND_FORM_SENT', {
-            detail: {
-                full_name: event.target.full_name.value,
-                used_name: event.target.used_name.value,
-                address: event.target.address.value,
-                town: event.target.town.value,
-                email: event.target.email.value,
-            }
-        }),
-    )
-
-    event.target.reset();
 }

@@ -33,7 +33,7 @@ function handleCommandOrderPosted(order_id, basket) {
         order_id: order_id.orderId,
         order_price: basket.totalPrice,
     }
-    LOCAL_STORAGE.lastOrder(order_summary);
+    LOCAL_STORAGE.lastOrder = order_summary;
 
     Router.command();
     basket.clear();

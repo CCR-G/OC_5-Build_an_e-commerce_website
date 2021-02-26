@@ -1,6 +1,6 @@
 import { LOCAL_STORAGE } from "../local-storage";
 import { Router } from "../router";
-import { CommandConfirmUserInterface } from "../user-interfaces/command-confirm-user-interface";
+import { CommandConfirmUserInterface } from "../user-interfaces/command-ui/command-confirm-user-interface";
 
 generateCommandConfirmPage();
 

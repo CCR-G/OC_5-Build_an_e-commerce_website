@@ -1,5 +1,5 @@
 import { Basket } from "../classes/basket-storage";
-import { HeaderUserInterface } from "../user-interfaces/header-user-interface";
+import { HeaderUserInterface } from "../user-interfaces/header-ui/header-user-interface";
 
 /**
  * Returns an object corresponding to the item's id passed as argument.
