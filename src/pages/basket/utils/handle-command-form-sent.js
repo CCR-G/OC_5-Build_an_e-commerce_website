@@ -1,8 +1,8 @@
-import { postCommandOrder } from "../../api/post-command-order";
-import { Basket } from "../../classes/basket-storage";
-import { Contact } from "../../classes/contact";
-import { LOCAL_STORAGE } from "../../local-storage";
-import { Router } from "../../router";
+import { postCommandOrder } from "../../../api/post-command-order";
+import { Basket } from "../../../classes/basket-storage";
+import { Contact } from "../../../classes/contact";
+import { LOCAL_STORAGE } from "../../../local-storage";
+import { Router } from "../../../router";
 import { createCommandRequest } from "./create-command-request";
 
 export function handleCommandFormSentEvent(event) {

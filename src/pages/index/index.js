@@ -1,5 +1,5 @@
-import { FurnituresListUserInterface } from "../user-interfaces/furnitures-list-ui";
-import { getFurnituresList } from "../api/get-furniture-list";
+import { FurnituresListUserInterface } from "../../user-interfaces/furnitures-list-ui";
+import { getFurnituresList } from "../../api/get-furniture-list";
 
 getFurnituresList()
     .catch((error) => {

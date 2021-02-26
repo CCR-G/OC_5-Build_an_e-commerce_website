@@ -30,13 +30,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/index/index.js":
-/*!****************************!*\
-  !*** ./src/index/index.js ***!
-  \****************************/
+/***/ "./src/pages/index/index.js":
+/*!**********************************!*\
+  !*** ./src/pages/index/index.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_interfaces_furnitures_list_ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../user-interfaces/furnitures-list-ui */ \"./src/user-interfaces/furnitures-list-ui/index.js\");\n/* harmony import */ var _api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/get-furniture-list */ \"./src/api/get-furniture-list.js\");\n\r\n\r\n\r\n(0,_api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__.getFurnituresList)()\r\n    .catch((error) => {\r\n        throw new Error(error.message);\r\n    })\r\n    .then((furnitures_list) => {\r\n        _user_interfaces_furnitures_list_ui__WEBPACK_IMPORTED_MODULE_0__.FurnituresListUserInterface.content = furnitures_list;\r\n    });\r\n\r\n\n\n//# sourceURL=webpack://orinoco/./src/index/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_interfaces_furnitures_list_ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../user-interfaces/furnitures-list-ui */ \"./src/user-interfaces/furnitures-list-ui/index.js\");\n/* harmony import */ var _api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/get-furniture-list */ \"./src/api/get-furniture-list.js\");\n\r\n\r\n\r\n(0,_api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__.getFurnituresList)()\r\n    .catch((error) => {\r\n        throw new Error(error.message);\r\n    })\r\n    .then((furnitures_list) => {\r\n        _user_interfaces_furnitures_list_ui__WEBPACK_IMPORTED_MODULE_0__.FurnituresListUserInterface.content = furnitures_list;\r\n    });\r\n\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/index/index.js?");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/index/index.js");
 /******/ 	
 /******/ })()
 ;

@@ -1,5 +1,5 @@
-import { getFurniture } from "../api/get-furniture";
-import { Router } from "../router";
+import { getFurniture } from "../../api/get-furniture";
+import { Router } from "../../router";
 import { getFurnitureIdFromURL } from "./utils/get-furniture-id-from-url";
 import { setupUserInterface } from "./utils/setup-user-interface";
 

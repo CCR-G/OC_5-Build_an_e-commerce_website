@@ -10,10 +10,10 @@ const meta = {
 module.exports = {
     //This generates the JS files
     entry: {
-        index: './src/index/index.js',
-        item: './src/item/item.js',
-        basket: './src/basket/basket.js',
-        command: './src/command/command.js',
+        index: './src/pages/index/index.js',
+        item: './src/pages/item/item.js',
+        basket: './src/pages/basket/basket.js',
+        command: './src/pages/command/command.js',
         common: './src/common/common.js'
     },
     mode: 'development',
@@ -21,14 +21,14 @@ module.exports = {
     //This generates the HTML files
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index/index.html',
+            template: './src/pages/index/index.html',
             inject: true,
             chunks: ['index'],
             filename: 'index.html',
             'meta': meta,
         }),
         new HtmlWebpackPlugin({
-            template: './src/item/item.html',
+            template: './src/pages/item/item.html',
             inject: true,
             chunks: ['item'],
             filename: 'item.html',
@@ -44,7 +44,7 @@ module.exports = {
 
         }),
         new HtmlWebpackPlugin({
-            template: './src/command/command.html',
+            template: './src/pages/command/command.html',
             inject: true,
             chunks: ['command'],
             filename: 'command.html',

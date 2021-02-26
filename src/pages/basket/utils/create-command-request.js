@@ -1,4 +1,4 @@
-import { CommandRequest } from "../../classes/command-request";
+import { CommandRequest } from "../../../classes/command-request";
 
 export function createCommandRequest(contact, basket_items) {
     let product_ids = [];

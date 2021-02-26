@@ -20,36 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/basket/basket.js":
-/*!******************************!*\
-  !*** ./src/basket/basket.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/set-basket-quantity */ \"./src/common/set-basket-quantity.js\");\n/* harmony import */ var _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user-interfaces/basket-ui */ \"./src/user-interfaces/basket-ui/index.js\");\n/* harmony import */ var _utils_handle_command_form_sent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/handle-command-form-sent */ \"./src/basket/utils/handle-command-form-sent.js\");\n\r\n\r\n\r\n\r\n\r\ngenerateBasketPage();\r\n\r\nfunction generateBasketPage() {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__.Basket;\r\n\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.basketContent = basket.content;\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.totalPrice = basket.totalPrice\r\n\r\n    if (basket.isEmpty) {\r\n        _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.disableCommandRequest();\r\n    }\r\n\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.proposeToClearBasket();\r\n    document.addEventListener(\"CLEAR_BASKET_BUTTON_CLICKED\", () => {\r\n        basket.clear();\r\n        generateBasketPage();\r\n        (0,_common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_1__.setBasketQuantity)();\r\n    });\r\n\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.proposeToCommandBasketContent();\r\n    document.addEventListener(\"COMMAND_FORM_SENT\", _utils_handle_command_form_sent__WEBPACK_IMPORTED_MODULE_3__.handleCommandFormSentEvent)\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/basket/basket.js?");
-
-/***/ }),
-
-/***/ "./src/basket/utils/create-command-request.js":
-/*!****************************************************!*\
-  !*** ./src/basket/utils/create-command-request.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createCommandRequest\": () => (/* binding */ createCommandRequest)\n/* harmony export */ });\n/* harmony import */ var _classes_command_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../classes/command-request */ \"./src/classes/command-request.js\");\n\r\n\r\nfunction createCommandRequest(contact, basket_items) {\r\n    let product_ids = [];\r\n\r\n    Object.keys(basket_items).forEach((key) => {\r\n        let basket_item = basket_items[key];\r\n\r\n        let i = 0;\r\n        while (i < basket_item.quantity) {\r\n            product_ids.push(basket_item.furniture._id);\r\n            i++;\r\n        }\r\n    });\r\n\r\n    return new _classes_command_request__WEBPACK_IMPORTED_MODULE_0__.CommandRequest(contact, product_ids);\r\n}\n\n//# sourceURL=webpack://orinoco/./src/basket/utils/create-command-request.js?");
-
-/***/ }),
-
-/***/ "./src/basket/utils/handle-command-form-sent.js":
-/*!******************************************************!*\
-  !*** ./src/basket/utils/handle-command-form-sent.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"handleCommandFormSentEvent\": () => (/* binding */ handleCommandFormSentEvent)\n/* harmony export */ });\n/* harmony import */ var _api_post_command_order__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/post-command-order */ \"./src/api/post-command-order.js\");\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _classes_contact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../classes/contact */ \"./src/classes/contact.js\");\n/* harmony import */ var _local_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../local-storage */ \"./src/local-storage.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../router */ \"./src/router.js\");\n/* harmony import */ var _create_command_request__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./create-command-request */ \"./src/basket/utils/create-command-request.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfunction handleCommandFormSentEvent(event) {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__.Basket;\r\n\r\n    let basket_items = basket.content;\r\n    if (basket.isEmpty) {\r\n        alert(\"No items in basket, please fill your basket with our fantastic furnitures!\");\r\n        return;\r\n    }\r\n\r\n    let contact = new _classes_contact__WEBPACK_IMPORTED_MODULE_2__.Contact(\r\n        event.detail.full_name,\r\n        event.detail.used_name,\r\n        event.detail.address,\r\n        event.detail.town,\r\n        event.detail.email\r\n    );\r\n\r\n    const command_request = (0,_create_command_request__WEBPACK_IMPORTED_MODULE_5__.createCommandRequest)(contact, basket_items);\r\n\r\n    (0,_api_post_command_order__WEBPACK_IMPORTED_MODULE_0__.postCommandOrder)(command_request)\r\n        .then((order_id) => { handleCommandOrderPosted(order_id, basket) })\r\n};\r\n\r\nfunction handleCommandOrderPosted(order_id, basket) {\r\n    const order_summary = {\r\n        order_id: order_id.orderId,\r\n        order_price: basket.totalPrice,\r\n    }\r\n    _local_storage__WEBPACK_IMPORTED_MODULE_3__.LOCAL_STORAGE.lastOrder = order_summary;\r\n\r\n    _router__WEBPACK_IMPORTED_MODULE_4__.Router.command();\r\n    basket.clear();\r\n};\r\n\n\n//# sourceURL=webpack://orinoco/./src/basket/utils/handle-command-form-sent.js?");
-
-/***/ }),
-
 /***/ "./src/classes/basket-item.js":
 /*!************************************!*\
   !*** ./src/classes/basket-item.js ***!
@@ -117,6 +87,36 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LOCAL_STORAGE\": () => (/* binding */ LOCAL_STORAGE)\n/* harmony export */ });\nconst LOCAL_STORAGE = {\r\n    get basket() {\r\n        const local_storage_basket = window.localStorage.getItem(\"basket\");\r\n        return local_storage_basket ? JSON.parse(local_storage_basket) : null;\r\n    },\r\n\r\n    set basket(basket_storage) {\r\n        const json_basket_content = JSON.stringify(basket_storage);\r\n        window.localStorage.setItem(\"basket\", json_basket_content);\r\n    },\r\n\r\n    get lastOrder() {\r\n        const local_storage_last_order = window.localStorage.getItem(\"last-order\");\r\n        return local_storage_last_order ? JSON.parse(local_storage_last_order) : null;\r\n    },\r\n\r\n    set lastOrder(order_summary) {\r\n        const json_last_order = JSON.stringify(order_summary);\r\n        window.localStorage.setItem(\"last-order\", json_last_order);\r\n    },\r\n}\n\n//# sourceURL=webpack://orinoco/./src/local-storage.js?");
+
+/***/ }),
+
+/***/ "./src/pages/basket/basket.js":
+/*!************************************!*\
+  !*** ./src/pages/basket/basket.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/set-basket-quantity */ \"./src/common/set-basket-quantity.js\");\n/* harmony import */ var _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../user-interfaces/basket-ui */ \"./src/user-interfaces/basket-ui/index.js\");\n/* harmony import */ var _utils_handle_command_form_sent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/handle-command-form-sent */ \"./src/pages/basket/utils/handle-command-form-sent.js\");\n\r\n\r\n\r\n\r\n\r\ngenerateBasketPage();\r\n\r\nfunction generateBasketPage() {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__.Basket;\r\n\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.basketContent = basket.content;\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.totalPrice = basket.totalPrice\r\n\r\n    if (basket.isEmpty) {\r\n        _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.disableCommandRequest();\r\n    }\r\n\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.proposeToClearBasket();\r\n    document.addEventListener(\"CLEAR_BASKET_BUTTON_CLICKED\", () => {\r\n        basket.clear();\r\n        generateBasketPage();\r\n        (0,_common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_1__.setBasketQuantity)();\r\n    });\r\n\r\n    _user_interfaces_basket_ui__WEBPACK_IMPORTED_MODULE_2__.BasketUserInterface.proposeToCommandBasketContent();\r\n    document.addEventListener(\"COMMAND_FORM_SENT\", _utils_handle_command_form_sent__WEBPACK_IMPORTED_MODULE_3__.handleCommandFormSentEvent)\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/basket/basket.js?");
+
+/***/ }),
+
+/***/ "./src/pages/basket/utils/create-command-request.js":
+/*!**********************************************************!*\
+  !*** ./src/pages/basket/utils/create-command-request.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createCommandRequest\": () => (/* binding */ createCommandRequest)\n/* harmony export */ });\n/* harmony import */ var _classes_command_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../classes/command-request */ \"./src/classes/command-request.js\");\n\r\n\r\nfunction createCommandRequest(contact, basket_items) {\r\n    let product_ids = [];\r\n\r\n    Object.keys(basket_items).forEach((key) => {\r\n        let basket_item = basket_items[key];\r\n\r\n        let i = 0;\r\n        while (i < basket_item.quantity) {\r\n            product_ids.push(basket_item.furniture._id);\r\n            i++;\r\n        }\r\n    });\r\n\r\n    return new _classes_command_request__WEBPACK_IMPORTED_MODULE_0__.CommandRequest(contact, product_ids);\r\n}\n\n//# sourceURL=webpack://orinoco/./src/pages/basket/utils/create-command-request.js?");
+
+/***/ }),
+
+/***/ "./src/pages/basket/utils/handle-command-form-sent.js":
+/*!************************************************************!*\
+  !*** ./src/pages/basket/utils/handle-command-form-sent.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"handleCommandFormSentEvent\": () => (/* binding */ handleCommandFormSentEvent)\n/* harmony export */ });\n/* harmony import */ var _api_post_command_order__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../api/post-command-order */ \"./src/api/post-command-order.js\");\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _classes_contact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../classes/contact */ \"./src/classes/contact.js\");\n/* harmony import */ var _local_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../local-storage */ \"./src/local-storage.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../router */ \"./src/router.js\");\n/* harmony import */ var _create_command_request__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./create-command-request */ \"./src/pages/basket/utils/create-command-request.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfunction handleCommandFormSentEvent(event) {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__.Basket;\r\n\r\n    let basket_items = basket.content;\r\n    if (basket.isEmpty) {\r\n        alert(\"No items in basket, please fill your basket with our fantastic furnitures!\");\r\n        return;\r\n    }\r\n\r\n    let contact = new _classes_contact__WEBPACK_IMPORTED_MODULE_2__.Contact(\r\n        event.detail.full_name,\r\n        event.detail.used_name,\r\n        event.detail.address,\r\n        event.detail.town,\r\n        event.detail.email\r\n    );\r\n\r\n    const command_request = (0,_create_command_request__WEBPACK_IMPORTED_MODULE_5__.createCommandRequest)(contact, basket_items);\r\n\r\n    (0,_api_post_command_order__WEBPACK_IMPORTED_MODULE_0__.postCommandOrder)(command_request)\r\n        .then((order_id) => { handleCommandOrderPosted(order_id, basket) })\r\n};\r\n\r\nfunction handleCommandOrderPosted(order_id, basket) {\r\n    const order_summary = {\r\n        order_id: order_id.orderId,\r\n        order_price: basket.totalPrice,\r\n    }\r\n    _local_storage__WEBPACK_IMPORTED_MODULE_3__.LOCAL_STORAGE.lastOrder = order_summary;\r\n\r\n    _router__WEBPACK_IMPORTED_MODULE_4__.Router.command();\r\n    basket.clear();\r\n};\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/basket/utils/handle-command-form-sent.js?");
 
 /***/ }),
 
@@ -249,7 +249,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/basket/basket.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/basket/basket.js");
 /******/ 	
 /******/ })()
 ;

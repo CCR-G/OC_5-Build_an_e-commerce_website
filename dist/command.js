@@ -30,16 +30,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/command/command.js":
-/*!********************************!*\
-  !*** ./src/command/command.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _local_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../local-storage */ \"./src/local-storage.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ \"./src/router.js\");\n/* harmony import */ var _user_interfaces_command_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user-interfaces/command-ui */ \"./src/user-interfaces/command-ui/index.js\");\n\r\n\r\n\r\n\r\ngenerateCommandConfirmPage();\r\n\r\nfunction generateCommandConfirmPage() {\r\n    let last_order = _local_storage__WEBPACK_IMPORTED_MODULE_0__.LOCAL_STORAGE.lastOrder;\r\n    if (!last_order) {\r\n        _router__WEBPACK_IMPORTED_MODULE_1__.Router.basket();\r\n        return;\r\n    }\r\n\r\n    _user_interfaces_command_ui__WEBPACK_IMPORTED_MODULE_2__.CommandConfirmUserInterface.commandNumber = last_order.order_id;\r\n    _user_interfaces_command_ui__WEBPACK_IMPORTED_MODULE_2__.CommandConfirmUserInterface.commandPrice = last_order.order_price;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/command/command.js?");
-
-/***/ }),
-
 /***/ "./src/local-storage.js":
 /*!******************************!*\
   !*** ./src/local-storage.js ***!
@@ -47,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _loc
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LOCAL_STORAGE\": () => (/* binding */ LOCAL_STORAGE)\n/* harmony export */ });\nconst LOCAL_STORAGE = {\r\n    get basket() {\r\n        const local_storage_basket = window.localStorage.getItem(\"basket\");\r\n        return local_storage_basket ? JSON.parse(local_storage_basket) : null;\r\n    },\r\n\r\n    set basket(basket_storage) {\r\n        const json_basket_content = JSON.stringify(basket_storage);\r\n        window.localStorage.setItem(\"basket\", json_basket_content);\r\n    },\r\n\r\n    get lastOrder() {\r\n        const local_storage_last_order = window.localStorage.getItem(\"last-order\");\r\n        return local_storage_last_order ? JSON.parse(local_storage_last_order) : null;\r\n    },\r\n\r\n    set lastOrder(order_summary) {\r\n        const json_last_order = JSON.stringify(order_summary);\r\n        window.localStorage.setItem(\"last-order\", json_last_order);\r\n    },\r\n}\n\n//# sourceURL=webpack://orinoco/./src/local-storage.js?");
+
+/***/ }),
+
+/***/ "./src/pages/command/command.js":
+/*!**************************************!*\
+  !*** ./src/pages/command/command.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _local_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../local-storage */ \"./src/local-storage.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../router */ \"./src/router.js\");\n/* harmony import */ var _user_interfaces_command_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../user-interfaces/command-ui */ \"./src/user-interfaces/command-ui/index.js\");\n\r\n\r\n\r\n\r\ngenerateCommandConfirmPage();\r\n\r\nfunction generateCommandConfirmPage() {\r\n    let last_order = _local_storage__WEBPACK_IMPORTED_MODULE_0__.LOCAL_STORAGE.lastOrder;\r\n    if (!last_order) {\r\n        _router__WEBPACK_IMPORTED_MODULE_1__.Router.basket();\r\n        return;\r\n    }\r\n\r\n    _user_interfaces_command_ui__WEBPACK_IMPORTED_MODULE_2__.CommandConfirmUserInterface.commandNumber = last_order.order_id;\r\n    _user_interfaces_command_ui__WEBPACK_IMPORTED_MODULE_2__.CommandConfirmUserInterface.commandPrice = last_order.order_price;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/command/command.js?");
 
 /***/ }),
 
@@ -139,7 +139,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/command/command.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/command/command.js");
 /******/ 	
 /******/ })()
 ;

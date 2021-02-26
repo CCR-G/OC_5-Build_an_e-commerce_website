@@ -80,36 +80,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/item/item.js":
-/*!**************************!*\
-  !*** ./src/item/item.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_get_furniture__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/get-furniture */ \"./src/api/get-furniture.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ \"./src/router.js\");\n/* harmony import */ var _utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/get-furniture-id-from-url */ \"./src/item/utils/get-furniture-id-from-url.js\");\n/* harmony import */ var _utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/setup-user-interface */ \"./src/item/utils/setup-user-interface.js\");\n\r\n\r\n\r\n\r\n\r\ngenerateItemPage();\r\n\r\nfunction generateItemPage() {\r\n    const item_id = (0,_utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__.getFurnitureIdFromURL)();\r\n    if (!item_id) {\r\n        _router__WEBPACK_IMPORTED_MODULE_1__.Router.home();\r\n        return;\r\n    }\r\n\r\n    (0,_api_get_furniture__WEBPACK_IMPORTED_MODULE_0__.getFurniture)(item_id)\r\n        .catch(() => {\r\n            _router__WEBPACK_IMPORTED_MODULE_1__.Router.home();\r\n            return;\r\n        })\r\n        .then(_utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__.setupUserInterface);\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/item/item.js?");
-
-/***/ }),
-
-/***/ "./src/item/utils/get-furniture-id-from-url.js":
-/*!*****************************************************!*\
-  !*** ./src/item/utils/get-furniture-id-from-url.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getFurnitureIdFromURL\": () => (/* binding */ getFurnitureIdFromURL)\n/* harmony export */ });\nfunction getFurnitureIdFromURL() {\r\n    const search_params = document.location.search;\r\n    const url_param = new URLSearchParams(search_params);\r\n    const item_id = url_param.get(\"id\");\r\n\r\n    return item_id ? item_id : null;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/item/utils/get-furniture-id-from-url.js?");
-
-/***/ }),
-
-/***/ "./src/item/utils/setup-user-interface.js":
-/*!************************************************!*\
-  !*** ./src/item/utils/setup-user-interface.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setupUserInterface\": () => (/* binding */ setupUserInterface)\n/* harmony export */ });\n/* harmony import */ var _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../classes/basket-item */ \"./src/classes/basket-item.js\");\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/set-basket-quantity */ \"./src/common/set-basket-quantity.js\");\n/* harmony import */ var _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../user-interfaces/furniture-ui */ \"./src/user-interfaces/furniture-ui/index.js\");\n\r\n\r\n\r\n\r\n\r\nfunction setupUserInterface(item) {\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.furnitureDetails = item;\r\n\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.proposeToAddToBasket();\r\n    document.addEventListener(\"ADD_TO_BASKET_FORM_SENT\", (event) => {\r\n        addFurnitureToBasket(event, item)\r\n    });\r\n}\r\n\r\nfunction addFurnitureToBasket(event, item) {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__.Basket;\r\n    basket.add(\r\n        new _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__.BasketItem(\r\n            item,\r\n            event.detail.customisation,\r\n            event.detail.quantity\r\n        )\r\n    );\r\n\r\n    (0,_common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__.setBasketQuantity)();\r\n};\r\n\n\n//# sourceURL=webpack://orinoco/./src/item/utils/setup-user-interface.js?");
-
-/***/ }),
-
 /***/ "./src/local-storage.js":
 /*!******************************!*\
   !*** ./src/local-storage.js ***!
@@ -117,6 +87,36 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LOCAL_STORAGE\": () => (/* binding */ LOCAL_STORAGE)\n/* harmony export */ });\nconst LOCAL_STORAGE = {\r\n    get basket() {\r\n        const local_storage_basket = window.localStorage.getItem(\"basket\");\r\n        return local_storage_basket ? JSON.parse(local_storage_basket) : null;\r\n    },\r\n\r\n    set basket(basket_storage) {\r\n        const json_basket_content = JSON.stringify(basket_storage);\r\n        window.localStorage.setItem(\"basket\", json_basket_content);\r\n    },\r\n\r\n    get lastOrder() {\r\n        const local_storage_last_order = window.localStorage.getItem(\"last-order\");\r\n        return local_storage_last_order ? JSON.parse(local_storage_last_order) : null;\r\n    },\r\n\r\n    set lastOrder(order_summary) {\r\n        const json_last_order = JSON.stringify(order_summary);\r\n        window.localStorage.setItem(\"last-order\", json_last_order);\r\n    },\r\n}\n\n//# sourceURL=webpack://orinoco/./src/local-storage.js?");
+
+/***/ }),
+
+/***/ "./src/pages/item/item.js":
+/*!********************************!*\
+  !*** ./src/pages/item/item.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_get_furniture__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/get-furniture */ \"./src/api/get-furniture.js\");\n/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../router */ \"./src/router.js\");\n/* harmony import */ var _utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/get-furniture-id-from-url */ \"./src/pages/item/utils/get-furniture-id-from-url.js\");\n/* harmony import */ var _utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/setup-user-interface */ \"./src/pages/item/utils/setup-user-interface.js\");\n\r\n\r\n\r\n\r\n\r\ngenerateItemPage();\r\n\r\nfunction generateItemPage() {\r\n    const item_id = (0,_utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__.getFurnitureIdFromURL)();\r\n    if (!item_id) {\r\n        _router__WEBPACK_IMPORTED_MODULE_1__.Router.home();\r\n        return;\r\n    }\r\n\r\n    (0,_api_get_furniture__WEBPACK_IMPORTED_MODULE_0__.getFurniture)(item_id)\r\n        .catch(() => {\r\n            _router__WEBPACK_IMPORTED_MODULE_1__.Router.home();\r\n            return;\r\n        })\r\n        .then(_utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__.setupUserInterface);\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/item/item.js?");
+
+/***/ }),
+
+/***/ "./src/pages/item/utils/get-furniture-id-from-url.js":
+/*!***********************************************************!*\
+  !*** ./src/pages/item/utils/get-furniture-id-from-url.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getFurnitureIdFromURL\": () => (/* binding */ getFurnitureIdFromURL)\n/* harmony export */ });\nfunction getFurnitureIdFromURL() {\r\n    const search_params = document.location.search;\r\n    const url_param = new URLSearchParams(search_params);\r\n    const item_id = url_param.get(\"id\");\r\n\r\n    return item_id ? item_id : null;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/item/utils/get-furniture-id-from-url.js?");
+
+/***/ }),
+
+/***/ "./src/pages/item/utils/setup-user-interface.js":
+/*!******************************************************!*\
+  !*** ./src/pages/item/utils/setup-user-interface.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setupUserInterface\": () => (/* binding */ setupUserInterface)\n/* harmony export */ });\n/* harmony import */ var _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../classes/basket-item */ \"./src/classes/basket-item.js\");\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../common/set-basket-quantity */ \"./src/common/set-basket-quantity.js\");\n/* harmony import */ var _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../user-interfaces/furniture-ui */ \"./src/user-interfaces/furniture-ui/index.js\");\n\r\n\r\n\r\n\r\n\r\nfunction setupUserInterface(item) {\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.furnitureDetails = item;\r\n\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.proposeToAddToBasket();\r\n    document.addEventListener(\"ADD_TO_BASKET_FORM_SENT\", (event) => {\r\n        addFurnitureToBasket(event, item)\r\n    });\r\n}\r\n\r\nfunction addFurnitureToBasket(event, item) {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__.Basket;\r\n    basket.add(\r\n        new _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__.BasketItem(\r\n            item,\r\n            event.detail.customisation,\r\n            event.detail.quantity\r\n        )\r\n    );\r\n\r\n    (0,_common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__.setBasketQuantity)();\r\n};\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/item/utils/setup-user-interface.js?");
 
 /***/ }),
 
@@ -239,7 +239,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/item/item.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/item/item.js");
 /******/ 	
 /******/ })()
 ;
