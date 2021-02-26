@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Orinoco</title>
+    <link rel="stylesheet" type="text/css" href="./style.min.css" />
+    <script defer src="common.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" rel="index" title="Go to homepage">Orinoco</a>
+            <a href="basket.html">Panier : <span data="basket-quantity">0</span></a>
+        </nav>
+    </header>
+
+    <div>
+        <%= partial %>
+    </div>
+    <main>
+        <%= require('html-loader!./src/basket/basket.html').default %>
+    </main>
+</body>
+
+<footer>© 2018 Orinoco</footer>

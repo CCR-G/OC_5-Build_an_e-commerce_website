@@ -35,7 +35,8 @@ module.exports = {
             'meta': meta,
         }),
         new HtmlWebpackPlugin({
-            template: './src/basket/basket.html',
+            template: './template.html',
+            templateParameters: { 'partial': 'basket' },
             inject: true,
             chunks: ['basket'],
             filename: 'basket.html',
