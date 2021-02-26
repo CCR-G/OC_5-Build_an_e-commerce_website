@@ -1,6 +1,6 @@
 import { setBasketQuantity } from "../modules/set-basket-quantity";
 import { BasketItem } from "./basket-item";
-import { LOCAL_STORAGE } from "./local-storage";
+import { LOCAL_STORAGE } from "../local-storage";
 
 export class Basket {
     constructor() {

@@ -10,6 +10,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/classes/command-request.js":
+/*!****************************************!*\
+  !*** ./src/classes/command-request.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CommandRequest\": () => (/* binding */ CommandRequest)\n/* harmony export */ });\n/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contact */ \"./src/classes/contact.js\");\n/**\r\n * Describe the CommandRequest object and what it contains.\r\n * @class CommandRequest\r\n */\r\n\r\n\r\n\r\nclass CommandRequest {\r\n    /**\r\n     * @constructs CommandRequest\r\n     * @param {Contact} contact - A Furniture Object\r\n     * @param {string[]} product_ids - Furniture customisation choice\r\n     */\r\n\r\n    constructor(contact, product_ids) {\r\n        this.contact = contact;\r\n        this.products = product_ids;\r\n    }\r\n\r\n    get() {\r\n        return {\r\n            contact: this.contact,\r\n            products: this.products,\r\n        }\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/classes/command-request.js?");
+
+/***/ }),
+
+/***/ "./src/classes/contact.js":
+/*!********************************!*\
+  !*** ./src/classes/contact.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Contact\": () => (/* binding */ Contact)\n/* harmony export */ });\n/**\r\n * Describe the Contact object and what it contains.\r\n * @class Contact\r\n */\r\n\r\nclass Contact {\r\n    constructor(firstname, surname, address, town, email) {\r\n        this.firstName = firstname;\r\n        this.lastName = surname;\r\n        this.address = address;\r\n        this.city = town;\r\n        this.email = email;\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/classes/contact.js?");
+
+/***/ }),
+
 /***/ "./src/command/command.js":
 /*!********************************!*\
   !*** ./src/command/command.js ***!
@@ -26,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rou
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Router\": () => (/* binding */ Router)\n/* harmony export */ });\nconst Router = {\r\n    get basket() {\r\n        window.location = \"basket.html\";\r\n    },\r\n\r\n    get home() {\r\n        window.location = \"index.html\";\r\n    }\r\n}\n\n//# sourceURL=webpack://orinoco/./src/router.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Router\": () => (/* binding */ Router)\n/* harmony export */ });\n/* harmony import */ var _classes_command_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classes/command-request */ \"./src/classes/command-request.js\");\n\r\n\r\nconst Router = {\r\n    basket() {\r\n        window.location = \"basket.html\";\r\n    },\r\n\r\n    home() {\r\n        window.location = \"index.html\";\r\n    },\r\n\r\n    command() {\r\n        window.location = \"command.html\";\r\n    }\r\n}\n\n//# sourceURL=webpack://orinoco/./src/router.js?");
 
 /***/ }),
 

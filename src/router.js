@@ -1,9 +1,15 @@
+import { CommandRequest } from "./classes/command-request";
+
 export const Router = {
-    get basket() {
+    basket() {
         window.location = "basket.html";
     },
 
-    get home() {
+    home() {
         window.location = "index.html";
+    },
+
+    command() {
+        window.location = "command.html";
     }
 }
