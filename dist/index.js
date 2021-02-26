@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_interfaces_furnitures_list_ui_furniture_list_user_interface__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../user-interfaces/furnitures-list-ui/furniture-list-user-interface */ \"./src/user-interfaces/furnitures-list-ui/furniture-list-user-interface.js\");\n/* harmony import */ var _api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/get-furniture-list */ \"./src/api/get-furniture-list.js\");\n\r\n\r\n\r\n(0,_api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__.getFurnituresList)()\r\n    .catch((error) => {\r\n        throw new Error(error.message);\r\n    })\r\n    .then((furnitures_list) => {\r\n        _user_interfaces_furnitures_list_ui_furniture_list_user_interface__WEBPACK_IMPORTED_MODULE_0__.FurnituresListUserInterface.content = furnitures_list;\r\n    });\r\n\r\n\n\n//# sourceURL=webpack://orinoco/./src/index/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_interfaces_furnitures_list_ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../user-interfaces/furnitures-list-ui */ \"./src/user-interfaces/furnitures-list-ui/index.js\");\n/* harmony import */ var _api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/get-furniture-list */ \"./src/api/get-furniture-list.js\");\n\r\n\r\n\r\n(0,_api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__.getFurnituresList)()\r\n    .catch((error) => {\r\n        throw new Error(error.message);\r\n    })\r\n    .then((furnitures_list) => {\r\n        _user_interfaces_furnitures_list_ui__WEBPACK_IMPORTED_MODULE_0__.FurnituresListUserInterface.content = furnitures_list;\r\n    });\r\n\r\n\n\n//# sourceURL=webpack://orinoco/./src/index/index.js?");
 
 /***/ }),
 
@@ -70,13 +70,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/user-interfaces/furnitures-list-ui/furniture-list-user-interface.js":
-/*!*********************************************************************************!*\
-  !*** ./src/user-interfaces/furnitures-list-ui/furniture-list-user-interface.js ***!
-  \*********************************************************************************/
+/***/ "./src/user-interfaces/furnitures-list-ui/index.js":
+/*!*********************************************************!*\
+  !*** ./src/user-interfaces/furnitures-list-ui/index.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"FurnituresListUserInterface\": () => (/* binding */ FurnituresListUserInterface)\n/* harmony export */ });\n/* harmony import */ var _common_utils_get_data_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common-utils/get-data-element */ \"./src/user-interfaces/common-utils/get-data-element.js\");\n/* harmony import */ var _common_utils_create_furniture_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common-utils/create-furniture-card */ \"./src/user-interfaces/common-utils/create-furniture-card.js\");\n\r\n\r\n\r\nconst FurnituresListUserInterface = {\r\n    set content(furnitures_list) {\r\n        const cards_container = (0,_common_utils_get_data_element__WEBPACK_IMPORTED_MODULE_0__.getDataElement)(\"item-cards-container\");\r\n        furnitures_list.forEach((furniture) => {\r\n            let furniture_card = (0,_common_utils_create_furniture_card__WEBPACK_IMPORTED_MODULE_1__.createFurnitureCard)(furniture);\r\n            cards_container.appendChild(furniture_card);\r\n        });\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/user-interfaces/furnitures-list-ui/furniture-list-user-interface.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"FurnituresListUserInterface\": () => (/* binding */ FurnituresListUserInterface)\n/* harmony export */ });\n/* harmony import */ var _common_utils_get_data_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common-utils/get-data-element */ \"./src/user-interfaces/common-utils/get-data-element.js\");\n/* harmony import */ var _common_utils_create_furniture_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common-utils/create-furniture-card */ \"./src/user-interfaces/common-utils/create-furniture-card.js\");\n\r\n\r\n\r\nconst FurnituresListUserInterface = {\r\n    set content(furnitures_list) {\r\n        const cards_container = (0,_common_utils_get_data_element__WEBPACK_IMPORTED_MODULE_0__.getDataElement)(\"item-cards-container\");\r\n        furnitures_list.forEach((furniture) => {\r\n            let furniture_card = (0,_common_utils_create_furniture_card__WEBPACK_IMPORTED_MODULE_1__.createFurnitureCard)(furniture);\r\n            cards_container.appendChild(furniture_card);\r\n        });\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/user-interfaces/furnitures-list-ui/index.js?");
 
 /***/ })
 

@@ -1,7 +1,7 @@
 import { BasketItem } from "../../classes/basket-item";
 import { Basket } from "../../classes/basket-storage";
 import { setBasketQuantity } from "../../common/set-basket-quantity";
-import { FurnitureUserInterface } from "../../user-interfaces/furniture-ui/furniture-user-interface";
+import { FurnitureUserInterface } from "../../user-interfaces/furniture-ui";
 
 export function setupUserInterface(item) {
     FurnitureUserInterface.furnitureDetails = item;

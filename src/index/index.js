@@ -1,4 +1,4 @@
-import { FurnituresListUserInterface } from "../user-interfaces/furnitures-list-ui/furniture-list-user-interface";
+import { FurnituresListUserInterface } from "../user-interfaces/furnitures-list-ui";
 import { getFurnituresList } from "../api/get-furniture-list";
 
 getFurnituresList()
