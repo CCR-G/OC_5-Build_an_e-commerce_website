@@ -1,4 +1,5 @@
-import { getFurniture } from "../modules/get-furniture";
+import { getFurniture } from "../api/get-furniture";
+
 import { Basket } from "../classes/basket-storage";
 import { BasketItem } from "../classes/basket-item";
 

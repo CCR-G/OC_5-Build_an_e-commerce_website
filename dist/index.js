@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/api/get-furniture-list.js":
+/*!***************************************!*\
+  !*** ./src/api/get-furniture-list.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getFurnituresList\": () => (/* binding */ getFurnituresList)\n/* harmony export */ });\nasync function getFurnituresList() {\r\n    const furnitures_list = await fetch(`http://localhost:3000/api/furniture`);\r\n\r\n    if (!furnitures_list.ok) {\r\n        throw new Error(`Error ${furnitures_list.status} : List of item could not be retrieved.`);\r\n    }\r\n\r\n    const json_list = await furnitures_list.json();\r\n\r\n    return json_list;\r\n}\n\n//# sourceURL=webpack://orinoco/./src/api/get-furniture-list.js?");
+
+/***/ }),
+
 /***/ "./src/classes/furniture.js":
 /*!**********************************!*\
   !*** ./src/classes/furniture.js ***!
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_interfaces_furniture_list_user_interface__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../user-interfaces/furniture-list-user-interface */ \"./src/user-interfaces/furniture-list-user-interface.js\");\n\r\n\r\ngenerateItemsListPage();\r\n\r\nfunction generateItemsListPage() {\r\n    getFurnituresList()\r\n        .catch((error) => {\r\n            console.log(error.message);\r\n        })\r\n        .then((furnitures_list) => {\r\n            _user_interfaces_furniture_list_user_interface__WEBPACK_IMPORTED_MODULE_0__.FurnituresListUserInterface.furnituresList = furnitures_list;\r\n        });\r\n}\r\n\r\nasync function getFurnituresList() {\r\n    const furnitures_list = await fetch(`http://localhost:3000/api/furniture`);\r\n\r\n    if (!furnitures_list.ok) {\r\n        throw new Error(`Error ${furnitures_list.status} : List of item could not be retrieved.`);\r\n    }\r\n\r\n    const json_list = await furnitures_list.json();\r\n\r\n    return json_list;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/index/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _user_interfaces_furniture_list_user_interface__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../user-interfaces/furniture-list-user-interface */ \"./src/user-interfaces/furniture-list-user-interface.js\");\n/* harmony import */ var _api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/get-furniture-list */ \"./src/api/get-furniture-list.js\");\n\r\n\r\n\r\ngenerateItemsListPage();\r\n\r\nfunction generateItemsListPage() {\r\n    (0,_api_get_furniture_list__WEBPACK_IMPORTED_MODULE_1__.getFurnituresList)()\r\n        .catch((error) => {\r\n            console.log(error.message);\r\n        })\r\n        .then((furnitures_list) => {\r\n            _user_interfaces_furniture_list_user_interface__WEBPACK_IMPORTED_MODULE_0__.FurnituresListUserInterface.furnituresList = furnitures_list;\r\n        });\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/index/index.js?");
 
 /***/ }),
 
