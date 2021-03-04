@@ -2,8 +2,8 @@ import { Basket } from "../../../classes/basket-storage";
 import { Contact } from "../../../classes/contact";
 
 import { postCommandOrder } from "../../../api/post-command-order";
-import { LOCAL_STORAGE } from "../../../local-storage";
-import { Redirect } from "../../../redirect";
+import { LOCAL_STORAGE } from "../../../utils/local-storage";
+import { Redirect } from "../../../utils/redirect";
 
 import { createCommandRequest } from "./create-command-request";
 

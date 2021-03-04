@@ -10,25 +10,25 @@ const meta = {
 module.exports = {
     //This generates the JS files
     entry: {
-        index: './src/pages/index/index.js',
-        item: './src/pages/item/item.js',
-        basket: './src/pages/basket/basket.js',
-        command: './src/pages/command/command.js',
-        common: './src/common/common.js'
+        index: './src/pages-logic/index/index.js',
+        item: './src/pages-logic/item/item.js',
+        basket: './src/pages-logic/basket/basket.js',
+        command: './src/pages-logic/command/command.js',
+        common: './src/pages-logic/common/common.js'
     },
     mode: 'development',
 
     //This generates the HTML files
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/pages/index/index.html',
+            template: './src/pages-logic/index/index.html',
             inject: true,
             chunks: ['index'],
             filename: 'index.html',
             'meta': meta,
         }),
         new HtmlWebpackPlugin({
-            template: './src/pages/item/item.html',
+            template: './src/pages-logic/item/item.html',
             inject: true,
             chunks: ['item'],
             filename: 'item.html',
@@ -44,7 +44,7 @@ module.exports = {
 
         }),
         new HtmlWebpackPlugin({
-            template: './src/pages/command/command.html',
+            template: './src/pages-logic/command/command.html',
             inject: true,
             chunks: ['command'],
             filename: 'command.html',

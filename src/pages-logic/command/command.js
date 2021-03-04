@@ -1,5 +1,5 @@
-import { LOCAL_STORAGE } from "../../local-storage";
-import { Redirect } from "../../redirect";
+import { LOCAL_STORAGE } from "../../utils/local-storage";
+import { Redirect } from "../../utils/redirect";
 
 import { CommandConfirmUserInterface } from "../../user-interfaces/command-ui";
 

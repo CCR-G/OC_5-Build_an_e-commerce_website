@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Basket\": () => (/* binding */ Basket)\n/* harmony export */ });\n/* harmony import */ var _basket_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basket-item */ \"./src/classes/basket-item.js\");\n/* harmony import */ var _local_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../local-storage */ \"./src/local-storage.js\");\n\r\n\r\n\r\n/** Class representing the Basket. */\r\nclass Basket {\r\n\r\n    constructor() {\r\n        this.basket_storage = {};\r\n        this.initiateBasketStorage();\r\n    }\r\n\r\n    initiateBasketStorage() {\r\n        let stored_basket = _local_storage__WEBPACK_IMPORTED_MODULE_1__.LOCAL_STORAGE.basket;\r\n        if (stored_basket) {\r\n            for (const id in stored_basket) {\r\n                this.basket_storage[id] = new _basket_item__WEBPACK_IMPORTED_MODULE_0__.BasketItem(\r\n                    stored_basket[id].furniture,\r\n                    stored_basket[id].customisation,\r\n                    stored_basket[id].quantity\r\n                );\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Adds a basket item to the basket.\r\n     * @param {BasketItem} basket_item - The BasketItem to add to the basket.\r\n     */\r\n    add(basket_item) {\r\n        if (!this.basket_storage[basket_item._id]) {\r\n            this.basket_storage[basket_item._id] = basket_item;\r\n        }\r\n        else {\r\n            this.basket_storage[basket_item._id].increaseQuantity(basket_item.quantity);\r\n        }\r\n\r\n        this.updateLocalStorage();\r\n    }\r\n\r\n    clear() {\r\n        this.basket_storage = {};\r\n\r\n        this.updateLocalStorage();\r\n    }\r\n\r\n    get quantity() {\r\n        let items_number = 0;\r\n        for (const basket_item_id in this.basket_storage) {\r\n            items_number += this.basket_storage[basket_item_id].quantity;\r\n        }\r\n        return items_number;\r\n    }\r\n\r\n    get isEmpty() {\r\n        return this.quantity === 0;\r\n    }\r\n\r\n    get totalPrice() {\r\n        let basket_total_price = 0;\r\n        for (const basket_item_id in this.basket_storage) {\r\n            basket_total_price += this.basket_storage[basket_item_id].totalPrice;\r\n        }\r\n        return basket_total_price;\r\n    }\r\n\r\n    get content() {\r\n        return this.basket_storage;\r\n    }\r\n\r\n    updateLocalStorage() {\r\n        _local_storage__WEBPACK_IMPORTED_MODULE_1__.LOCAL_STORAGE.basket = this.basket_storage;\r\n    }\r\n}\n\n//# sourceURL=webpack://orinoco/./src/classes/basket-storage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Basket\": () => (/* binding */ Basket)\n/* harmony export */ });\n/* harmony import */ var _basket_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./basket-item */ \"./src/classes/basket-item.js\");\n/* harmony import */ var _utils_local_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/local-storage */ \"./src/utils/local-storage.js\");\n\r\n\r\n\r\n/** Class representing the Basket. */\r\nclass Basket {\r\n\r\n    constructor() {\r\n        this.basket_storage = {};\r\n        this.initiateBasketStorage();\r\n    }\r\n\r\n    initiateBasketStorage() {\r\n        let stored_basket = _utils_local_storage__WEBPACK_IMPORTED_MODULE_1__.LOCAL_STORAGE.basket;\r\n        if (stored_basket) {\r\n            for (const id in stored_basket) {\r\n                this.basket_storage[id] = new _basket_item__WEBPACK_IMPORTED_MODULE_0__.BasketItem(\r\n                    stored_basket[id].furniture,\r\n                    stored_basket[id].customisation,\r\n                    stored_basket[id].quantity\r\n                );\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Adds a basket item to the basket.\r\n     * @param {BasketItem} basket_item - The BasketItem to add to the basket.\r\n     */\r\n    add(basket_item) {\r\n        if (!this.basket_storage[basket_item._id]) {\r\n            this.basket_storage[basket_item._id] = basket_item;\r\n        }\r\n        else {\r\n            this.basket_storage[basket_item._id].increaseQuantity(basket_item.quantity);\r\n        }\r\n\r\n        this.updateLocalStorage();\r\n    }\r\n\r\n    clear() {\r\n        this.basket_storage = {};\r\n\r\n        this.updateLocalStorage();\r\n    }\r\n\r\n    get quantity() {\r\n        let items_number = 0;\r\n        for (const basket_item_id in this.basket_storage) {\r\n            items_number += this.basket_storage[basket_item_id].quantity;\r\n        }\r\n        return items_number;\r\n    }\r\n\r\n    get isEmpty() {\r\n        return this.quantity === 0;\r\n    }\r\n\r\n    get totalPrice() {\r\n        let basket_total_price = 0;\r\n        for (const basket_item_id in this.basket_storage) {\r\n            basket_total_price += this.basket_storage[basket_item_id].totalPrice;\r\n        }\r\n        return basket_total_price;\r\n    }\r\n\r\n    get content() {\r\n        return this.basket_storage;\r\n    }\r\n\r\n    updateLocalStorage() {\r\n        _utils_local_storage__WEBPACK_IMPORTED_MODULE_1__.LOCAL_STORAGE.basket = this.basket_storage;\r\n    }\r\n}\n\n//# sourceURL=webpack://orinoco/./src/classes/basket-storage.js?");
 
 /***/ }),
 
@@ -50,63 +50,43 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/common/set-basket-quantity.js":
-/*!*******************************************!*\
-  !*** ./src/common/set-basket-quantity.js ***!
-  \*******************************************/
+/***/ "./src/pages-logic/common/set-basket-quantity.js":
+/*!*******************************************************!*\
+  !*** ./src/pages-logic/common/set-basket-quantity.js ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setBasketQuantity\": () => (/* binding */ setBasketQuantity)\n/* harmony export */ });\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _user_interfaces_header_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../user-interfaces/header-ui */ \"./src/user-interfaces/header-ui/index.js\");\n\r\n\r\n\r\nfunction setBasketQuantity() {\r\n    setBasketQuantityInUI();\r\n    window.addEventListener(\"storage\", setBasketQuantityInUI);\r\n}\r\n\r\nfunction setBasketQuantityInUI() {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__.Basket;\r\n    _user_interfaces_header_ui__WEBPACK_IMPORTED_MODULE_1__.HeaderUserInterface.showBasketQuantity(basket.quantity);\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/common/set-basket-quantity.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setBasketQuantity\": () => (/* binding */ setBasketQuantity)\n/* harmony export */ });\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _user_interfaces_header_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../user-interfaces/header-ui */ \"./src/user-interfaces/header-ui/index.js\");\n\r\n\r\n\r\nfunction setBasketQuantity() {\r\n    setBasketQuantityInUI();\r\n    window.addEventListener(\"storage\", setBasketQuantityInUI);\r\n}\r\n\r\nfunction setBasketQuantityInUI() {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_0__.Basket;\r\n    _user_interfaces_header_ui__WEBPACK_IMPORTED_MODULE_1__.HeaderUserInterface.showBasketQuantity(basket.quantity);\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages-logic/common/set-basket-quantity.js?");
 
 /***/ }),
 
-/***/ "./src/local-storage.js":
-/*!******************************!*\
-  !*** ./src/local-storage.js ***!
-  \******************************/
+/***/ "./src/pages-logic/item/item.js":
+/*!**************************************!*\
+  !*** ./src/pages-logic/item/item.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LOCAL_STORAGE\": () => (/* binding */ LOCAL_STORAGE)\n/* harmony export */ });\nconst LOCAL_STORAGE = {\r\n    get basket() {\r\n        const local_storage_basket = window.localStorage.getItem(\"basket\");\r\n        return local_storage_basket ? JSON.parse(local_storage_basket) : null;\r\n    },\r\n\r\n    set basket(basket_storage) {\r\n        const json_basket_content = JSON.stringify(basket_storage);\r\n        window.localStorage.setItem(\"basket\", json_basket_content);\r\n    },\r\n\r\n    get lastOrder() {\r\n        const local_storage_last_order = window.localStorage.getItem(\"last-order\");\r\n        return local_storage_last_order ? JSON.parse(local_storage_last_order) : null;\r\n    },\r\n\r\n    set lastOrder(order_summary) {\r\n        const json_last_order = JSON.stringify(order_summary);\r\n        window.localStorage.setItem(\"last-order\", json_last_order);\r\n    },\r\n}\n\n//# sourceURL=webpack://orinoco/./src/local-storage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_get_furniture__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/get-furniture */ \"./src/api/get-furniture.js\");\n/* harmony import */ var _utils_redirect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/redirect */ \"./src/utils/redirect.js\");\n/* harmony import */ var _utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/get-furniture-id-from-url */ \"./src/pages-logic/item/utils/get-furniture-id-from-url.js\");\n/* harmony import */ var _utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/setup-user-interface */ \"./src/pages-logic/item/utils/setup-user-interface.js\");\n\r\n\r\n\r\n\r\n\r\n\r\ngenerateItemPage();\r\n\r\nfunction generateItemPage() {\r\n    const furniture_id = (0,_utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__.getFurnitureIdFromURL)();\r\n    if (!furniture_id) {\r\n        _utils_redirect__WEBPACK_IMPORTED_MODULE_1__.Redirect.home();\r\n        return;\r\n    }\r\n\r\n    (0,_api_get_furniture__WEBPACK_IMPORTED_MODULE_0__.getFurniture)(furniture_id)\r\n        .catch(() => {\r\n            _utils_redirect__WEBPACK_IMPORTED_MODULE_1__.Redirect.home();\r\n            return;\r\n        })\r\n        .then(_utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__.setupUserInterface);\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages-logic/item/item.js?");
 
 /***/ }),
 
-/***/ "./src/pages/item/item.js":
-/*!********************************!*\
-  !*** ./src/pages/item/item.js ***!
-  \********************************/
+/***/ "./src/pages-logic/item/utils/get-furniture-id-from-url.js":
+/*!*****************************************************************!*\
+  !*** ./src/pages-logic/item/utils/get-furniture-id-from-url.js ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_get_furniture__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/get-furniture */ \"./src/api/get-furniture.js\");\n/* harmony import */ var _redirect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../redirect */ \"./src/redirect.js\");\n/* harmony import */ var _utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/get-furniture-id-from-url */ \"./src/pages/item/utils/get-furniture-id-from-url.js\");\n/* harmony import */ var _utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/setup-user-interface */ \"./src/pages/item/utils/setup-user-interface.js\");\n\r\n\r\n\r\n\r\n\r\n\r\ngenerateItemPage();\r\n\r\nfunction generateItemPage() {\r\n    const furniture_id = (0,_utils_get_furniture_id_from_url__WEBPACK_IMPORTED_MODULE_2__.getFurnitureIdFromURL)();\r\n    if (!furniture_id) {\r\n        _redirect__WEBPACK_IMPORTED_MODULE_1__.Redirect.home();\r\n        return;\r\n    }\r\n\r\n    (0,_api_get_furniture__WEBPACK_IMPORTED_MODULE_0__.getFurniture)(furniture_id)\r\n        .catch(() => {\r\n            _redirect__WEBPACK_IMPORTED_MODULE_1__.Redirect.home();\r\n            return;\r\n        })\r\n        .then(_utils_setup_user_interface__WEBPACK_IMPORTED_MODULE_3__.setupUserInterface);\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/item/item.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getFurnitureIdFromURL\": () => (/* binding */ getFurnitureIdFromURL)\n/* harmony export */ });\nfunction getFurnitureIdFromURL() {\r\n    const search_params = document.location.search;\r\n    const url_param = new URLSearchParams(search_params);\r\n    const furniture_id = url_param.get(\"id\");\r\n\r\n    return furniture_id ? furniture_id : null;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages-logic/item/utils/get-furniture-id-from-url.js?");
 
 /***/ }),
 
-/***/ "./src/pages/item/utils/get-furniture-id-from-url.js":
-/*!***********************************************************!*\
-  !*** ./src/pages/item/utils/get-furniture-id-from-url.js ***!
-  \***********************************************************/
+/***/ "./src/pages-logic/item/utils/setup-user-interface.js":
+/*!************************************************************!*\
+  !*** ./src/pages-logic/item/utils/setup-user-interface.js ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getFurnitureIdFromURL\": () => (/* binding */ getFurnitureIdFromURL)\n/* harmony export */ });\nfunction getFurnitureIdFromURL() {\r\n    const search_params = document.location.search;\r\n    const url_param = new URLSearchParams(search_params);\r\n    const furniture_id = url_param.get(\"id\");\r\n\r\n    return furniture_id ? furniture_id : null;\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/item/utils/get-furniture-id-from-url.js?");
-
-/***/ }),
-
-/***/ "./src/pages/item/utils/setup-user-interface.js":
-/*!******************************************************!*\
-  !*** ./src/pages/item/utils/setup-user-interface.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setupUserInterface\": () => (/* binding */ setupUserInterface)\n/* harmony export */ });\n/* harmony import */ var _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../classes/basket-item */ \"./src/classes/basket-item.js\");\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../common/set-basket-quantity */ \"./src/common/set-basket-quantity.js\");\n/* harmony import */ var _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../user-interfaces/furniture-ui */ \"./src/user-interfaces/furniture-ui/index.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfunction setupUserInterface(furniture) {\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.furnitureDetails = furniture;\r\n\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.proposeToAddToBasket();\r\n    document.addEventListener(\"ADD_TO_BASKET_FORM_SENT\", (event) => {\r\n        addFurnitureToBasket(event, furniture)\r\n    });\r\n}\r\n\r\nfunction addFurnitureToBasket(event, furniture) {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__.Basket;\r\n    basket.add(\r\n        new _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__.BasketItem(\r\n            furniture,\r\n            event.detail.customisation,\r\n            event.detail.quantity\r\n        )\r\n    );\r\n\r\n    (0,_common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__.setBasketQuantity)();\r\n};\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages/item/utils/setup-user-interface.js?");
-
-/***/ }),
-
-/***/ "./src/redirect.js":
-/*!*************************!*\
-  !*** ./src/redirect.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Redirect\": () => (/* binding */ Redirect)\n/* harmony export */ });\nconst Redirect = {\r\n\r\n    basket() {\r\n        window.location = \"basket.html\";\r\n    },\r\n\r\n    home() {\r\n        window.location = \"index.html\";\r\n    },\r\n\r\n    command() {\r\n        window.location = \"command.html\";\r\n    }\r\n}\n\n//# sourceURL=webpack://orinoco/./src/redirect.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"setupUserInterface\": () => (/* binding */ setupUserInterface)\n/* harmony export */ });\n/* harmony import */ var _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../classes/basket-item */ \"./src/classes/basket-item.js\");\n/* harmony import */ var _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../classes/basket-storage */ \"./src/classes/basket-storage.js\");\n/* harmony import */ var _common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../common/set-basket-quantity */ \"./src/pages-logic/common/set-basket-quantity.js\");\n/* harmony import */ var _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../user-interfaces/furniture-ui */ \"./src/user-interfaces/furniture-ui/index.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nfunction setupUserInterface(furniture) {\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.furnitureDetails = furniture;\r\n\r\n    _user_interfaces_furniture_ui__WEBPACK_IMPORTED_MODULE_3__.FurnitureUserInterface.proposeToAddToBasket();\r\n    document.addEventListener(\"ADD_TO_BASKET_FORM_SENT\", (event) => {\r\n        addFurnitureToBasket(event, furniture)\r\n    });\r\n}\r\n\r\nfunction addFurnitureToBasket(event, furniture) {\r\n    const basket = new _classes_basket_storage__WEBPACK_IMPORTED_MODULE_1__.Basket;\r\n    basket.add(\r\n        new _classes_basket_item__WEBPACK_IMPORTED_MODULE_0__.BasketItem(\r\n            furniture,\r\n            event.detail.customisation,\r\n            event.detail.quantity\r\n        )\r\n    );\r\n\r\n    (0,_common_set_basket_quantity__WEBPACK_IMPORTED_MODULE_2__.setBasketQuantity)();\r\n};\r\n\n\n//# sourceURL=webpack://orinoco/./src/pages-logic/item/utils/setup-user-interface.js?");
 
 /***/ }),
 
@@ -157,6 +137,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"HeaderUserInterface\": () => (/* binding */ HeaderUserInterface)\n/* harmony export */ });\n/* harmony import */ var _common_utils_get_data_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common-utils/get-data-element */ \"./src/user-interfaces/common-utils/get-data-element.js\");\n\r\n\r\nconst HeaderUserInterface = {\r\n    showBasketQuantity(basket_quantity) {\r\n        const quantity_container = (0,_common_utils_get_data_element__WEBPACK_IMPORTED_MODULE_0__.getDataElement)(\"basket-quantity\");\r\n        quantity_container.textContent = basket_quantity;\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://orinoco/./src/user-interfaces/header-ui/index.js?");
+
+/***/ }),
+
+/***/ "./src/utils/local-storage.js":
+/*!************************************!*\
+  !*** ./src/utils/local-storage.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LOCAL_STORAGE\": () => (/* binding */ LOCAL_STORAGE)\n/* harmony export */ });\nconst LOCAL_STORAGE = {\r\n    get basket() {\r\n        const local_storage_basket = window.localStorage.getItem(\"basket\");\r\n        return local_storage_basket ? JSON.parse(local_storage_basket) : null;\r\n    },\r\n\r\n    set basket(basket_storage) {\r\n        const json_basket_content = JSON.stringify(basket_storage);\r\n        window.localStorage.setItem(\"basket\", json_basket_content);\r\n    },\r\n\r\n    get lastOrder() {\r\n        const local_storage_last_order = window.localStorage.getItem(\"last-order\");\r\n        return local_storage_last_order ? JSON.parse(local_storage_last_order) : null;\r\n    },\r\n\r\n    set lastOrder(order_summary) {\r\n        const json_last_order = JSON.stringify(order_summary);\r\n        window.localStorage.setItem(\"last-order\", json_last_order);\r\n    },\r\n}\n\n//# sourceURL=webpack://orinoco/./src/utils/local-storage.js?");
+
+/***/ }),
+
+/***/ "./src/utils/redirect.js":
+/*!*******************************!*\
+  !*** ./src/utils/redirect.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Redirect\": () => (/* binding */ Redirect)\n/* harmony export */ });\nconst Redirect = {\r\n\r\n    basket() {\r\n        window.location = \"basket.html\";\r\n    },\r\n\r\n    home() {\r\n        window.location = \"index.html\";\r\n    },\r\n\r\n    command() {\r\n        window.location = \"command.html\";\r\n    }\r\n}\n\n//# sourceURL=webpack://orinoco/./src/utils/redirect.js?");
 
 /***/ })
 
@@ -219,7 +219,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages/item/item.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pages-logic/item/item.js");
 /******/ 	
 /******/ })()
 ;

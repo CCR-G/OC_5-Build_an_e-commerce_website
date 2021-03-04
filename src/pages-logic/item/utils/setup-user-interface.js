@@ -1,7 +1,7 @@
 import { BasketItem } from "../../../classes/basket-item";
 import { Basket } from "../../../classes/basket-storage";
 
-import { setBasketQuantity } from "../../../common/set-basket-quantity";
+import { setBasketQuantity } from "../../common/set-basket-quantity";
 
 import { FurnitureUserInterface } from "../../../user-interfaces/furniture-ui";
 

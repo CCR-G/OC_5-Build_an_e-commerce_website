@@ -1,5 +1,5 @@
 import { BasketItem } from "./basket-item";
-import { LOCAL_STORAGE } from "../local-storage";
+import { LOCAL_STORAGE } from "../utils/local-storage";
 
 /** Class representing the Basket. */
 export class Basket {
