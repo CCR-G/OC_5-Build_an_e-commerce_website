@@ -21,7 +21,7 @@
 
 <section>
     <h2>Contenu de votre panier</h2>
-    <ul data="basket-items-container">
+    <ul data="basket-items-container" class="basket-items-container">
     </ul>
 
     <div>
@@ -34,17 +34,22 @@
 
 <section>
     <h2>Passer commande pour le contenu de votre panier</h2>
-    <form data="command-form">
-        <label for="first-name">Full name :</label>
-        <input value="tartenpion full name" type="text" id="first-name" name="first_name" required>
-        <label for="last-name">How should we call you :</label>
-        <input value="tartenpion used name" type="text" id="last-name" name="last_name">
-        <label for="address">Address :</label>
-        <input value="tartenpion address" type="text" id="address" name="address" required>
-        <label for="town">Town :</label>
-        <input value="tartenpion town" type="text" id="town" name="town" required>
-        <label for="email">email :</label>
-        <input value="tartenpion@mail.com" type="email" id="email" name="email" required>
+    <form data="command-form" class="command-form">
+        <label> First name:
+            <input type="text" name="first_name" required>
+        </label>
+        <label for="last-name"> Last name:
+            <input type="text" name="last_name" required>
+        </label>
+        <label> Address:
+            <input type="text" name="address" required>
+        </label>
+        <label> Town:
+            <input type="text" name="town" required>
+        </label>
+        <label> Email:
+            <input type="email" name="email" required>
+        </label>
         <button type="submit" name="submit">Envoyer une demande de commande</button>
     </form>
 </section>
