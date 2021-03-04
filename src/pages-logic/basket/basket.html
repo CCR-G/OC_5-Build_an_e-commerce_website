@@ -1,37 +1,36 @@
 <h1>Basket</h1>
 
 <section>
-    <h2>Contenu de votre panier</h2>
+    <h2>Basket content</h2>
     <ul data="basket-items-container" class="basket-items-container">
     </ul>
 
     <div>
-        <span>Total : </span>
-        <span><span data="basket-price">0</span> €</span>
+        <span><strong>Total: </strong><span data="basket-price">0</span> €</span>
     </div>
 
     <button data="basket-clear">Clear basket</button>
 </section>
 
 <section>
-    <h2>Passer commande pour le contenu de votre panier</h2>
-    <form data="command-form" class="command-form">
-        <label> First name:
+    <h2>Command request form for this basket content:</h2>
+    <form data="command-form" class="form">
+        <label>First name:
             <input type="text" name="first_name" required>
         </label>
-        <label for="last-name"> Last name:
+        <label for="last-name">Last name:
             <input type="text" name="last_name" required>
         </label>
-        <label> Address:
+        <label>Address:
             <input type="text" name="address" required>
         </label>
-        <label> Town:
+        <label>Town:
             <input type="text" name="town" required>
         </label>
-        <label> Email:
+        <label>Email:
             <input type="email" name="email" required>
         </label>
-        <button type="submit" name="submit">Envoyer une demande de commande</button>
+        <button type="submit" name="submit">Send command request form</button>
     </form>
 </section>
 
@@ -43,8 +42,9 @@
                 <span data="furniture-name">Item name</span>
                 <span>| Price: <span data="furniture-price">Item price</span> €</span>
             </a>
-            <span>Customisation: <span data="basket-item-customisation">Item customisation</span></span>
-            <span>Quantity: <span data="basket-item-quantity">Item quantity</span></span>
+            <span><strong>Customisation: </strong><span data="basket-item-customisation">Item
+                    customisation</span></span>
+            <span><strong>Quantity: </strong><span data="basket-item-quantity">Item quantity</span></span>
         </div>
     </li>
 </template>

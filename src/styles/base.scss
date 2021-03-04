@@ -24,12 +24,24 @@ footer {
 }
 
 // Form
-
-form {
+.form {
     display: flex;
     flex-direction: column;
     max-width: 420px;
+
     * {
         margin: 10px 0;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    input {
+        flex-grow: 1;
+        max-width: 300px;
+        margin-left: 10px;
     }
 }

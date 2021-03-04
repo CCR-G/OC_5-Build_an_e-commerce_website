@@ -16,17 +16,3 @@
         flex-grow: 1;
     }
 }
-
-.command-form {
-    label {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    input {
-        flex-grow: 1;
-        max-width: 300px;
-        margin-left: 10px;
-    }
-}

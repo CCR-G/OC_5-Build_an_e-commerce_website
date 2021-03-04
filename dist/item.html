@@ -5,7 +5,7 @@
     <title>Orinoco</title>
     <link rel="stylesheet" type="text/css" href="./style.min.css" />
     <script defer src="common.js"></script>
-</head>
+<meta name="title" content="orinoco"><meta name="author" content="CCR-G"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><script defer src="item.js"></script></head>
 
 <body>
     <header>
@@ -24,15 +24,12 @@
             <p>Price: <span data="furniture-price">Item price</span> €</p>
             <p data="furniture-description">Item description</p>
 
-            <form id="" data="basket-add-form" class="form">
-                <label for="quantity">Quantity:
-                    <input type="number" id="quantity" name="quantity_input" min="1" placeholder="1" step="1" required>
-                </label>
+            <form id="" data="basket-add-form">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity_input" min="1" placeholder="1" step="1" required>
 
-                <label for="customisation">Choose a customisation:
-                    <select data="furniture-customisation" name="customisation_select" id="customisation"
-                        required></select>
-                </label>
+                <label for="customisation">Choose a customisation:</label>
+                <select data="furniture-customisation" name="customisation_select" id="customisation" required></select>
 
                 <button type="submit">Add to basket</button>
             </form>
