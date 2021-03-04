@@ -3,7 +3,7 @@ import { Contact } from "../../../classes/contact";
 
 import { postCommandOrder } from "../../../api/post-command-order";
 import { LOCAL_STORAGE } from "../../../utils/local-storage";
-import { Redirect } from "../../../utils/redirect";
+import { REDIRECT } from "../../../utils/redirect";
 
 import { createCommandRequest } from "./create-command-request";
 
@@ -37,6 +37,6 @@ function handleCommandOrderPosted(order, basket) {
     }
     LOCAL_STORAGE.lastOrder = order_summary;
 
-    Redirect.command();
+    REDIRECT.command();
     basket.clear();
 };

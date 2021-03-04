@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE } from "../../utils/local-storage";
-import { Redirect } from "../../utils/redirect";
+import { REDIRECT } from "../../utils/redirect";
 
 import { CommandConfirmUserInterface } from "../../user-interfaces/command-ui";
 
@@ -8,7 +8,7 @@ generateCommandConfirmPage();
 function generateCommandConfirmPage() {
     let last_order = LOCAL_STORAGE.lastOrder;
     if (!last_order) {
-        Redirect.basket();
+        REDIRECT.basket();
         return;
     }
 

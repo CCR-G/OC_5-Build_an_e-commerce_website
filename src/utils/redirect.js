@@ -1,4 +1,4 @@
-export const Redirect = {
+export const REDIRECT = {
 
     basket() {
         window.location = "basket.html";
