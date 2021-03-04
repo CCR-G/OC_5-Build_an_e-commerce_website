@@ -13,8 +13,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && sass ./src/styles/main.scss:./dist/style.min.css --no-source-map --style compressed",
-    "watch": "webpack --watch && sass --watch ./src/styles/main.scss:./dist/style.css"
+    "build": "sass ./src/styles/main.scss:./dist/style.min.css --no-source-map --style compressed && webpack",
+    "watch": "webpack --watch",
+    "watch-style": "sass --watch ./src/styles/main.scss:./dist/style.css"
   },
   "repository": {
     "type": "git",

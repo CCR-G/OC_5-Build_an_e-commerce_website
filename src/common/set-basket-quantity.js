@@ -1,16 +1,6 @@
 import { Basket } from "../classes/basket-storage";
 import { HeaderUserInterface } from "../user-interfaces/header-ui";
 
-/**
- * Returns an object corresponding to the item's id passed as argument.
- * Uses the API to fetch the item.
- * Throws an error with error status if the item could not be retrieved.
- *
- * @function setBasketQuantity
- * @param {Basket} basket - Basket storage
-
- * @returns {void} Only acts on DOM
- */
 export function setBasketQuantity() {
     setBasketQuantityInUI();
     window.addEventListener("storage", setBasketQuantityInUI);

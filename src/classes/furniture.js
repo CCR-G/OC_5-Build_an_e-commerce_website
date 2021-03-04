@@ -1,21 +1,17 @@
-/**
- * Describe the Furniture object and what it contains.
- * @class Furniture
- */
-
+/** Class representing a furniture product. */
 export class Furniture {
 
     /**
-     * @constructs Furniture
-     * @param {JSON} json_item - JSON representing the product
-     */
+    * Create a furniture.
+    * @param {JSON} json_furniture - The JSON representing the furniture product.
+    */
 
-    constructor(json_item) {
-        this._id = json_item._id;
-        this.name = json_item.name;
-        this.price = json_item.price;
-        this.description = json_item.description;
-        this.varnish = json_item.varnish;
-        this.imageUrl = json_item.imageUrl;
+    constructor(json_furniture) {
+        this._id = json_furniture._id;
+        this.name = json_furniture.name;
+        this.price = json_furniture.price;
+        this.description = json_furniture.description;
+        this.varnish = json_furniture.varnish;
+        this.imageUrl = json_furniture.imageUrl;
     }
 }

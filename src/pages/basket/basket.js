@@ -1,6 +1,8 @@
 import { Basket } from "../../classes/basket-storage";
+
 import { setBasketQuantity } from "../../common/set-basket-quantity";
 import { BasketUserInterface } from "../../user-interfaces/basket-ui";
+
 import { handleCommandFormSentEvent } from "./utils/handle-command-form-sent";
 
 generateBasketPage();

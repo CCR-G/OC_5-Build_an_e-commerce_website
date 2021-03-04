@@ -1,26 +1,16 @@
-/**
- * Describe the CommandRequest object and what it contains.
- * @class CommandRequest
- */
-
 import { Contact } from "./contact";
 
+/** Class representing a Command Request. */
 export class CommandRequest {
+
     /**
-     * @constructs CommandRequest
-     * @param {Contact} contact - A Furniture Object
-     * @param {string[]} product_ids - Furniture customisation choice
+     * Create a command request.
+     * @param {Contact} contact - A Contact object representing the contact and its details.
+     * @param {string[]} furnitures_id - An array containing the ids of all furnitures in basket.
      */
 
-    constructor(contact, product_ids) {
+    constructor(contact, furnitures_id) {
         this.contact = contact;
-        this.products = product_ids;
-    }
-
-    get() {
-        return {
-            contact: this.contact,
-            products: this.products,
-        }
+        this.products = furnitures_id;
     }
 }

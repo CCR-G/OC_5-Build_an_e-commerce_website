@@ -17,19 +17,19 @@
 
     <main>
         <div class="image-container">
-            <img data="item-image" width="100px" alt="">
+            <img data="furniture-image" width="100px" alt="">
         </div>
         <div>
-            <h1 data="item-name">Item name</h1>
-            <p><span data="item-price">Item price</span> €</p>
-            <p data="item-description">Item description</p>
+            <h1 data="furniture-name">Item name</h1>
+            <p>Price: <span data="furniture-price">Item price</span> €</p>
+            <p data="furniture-description">Item description</p>
 
             <form id="" data="basket-add-form">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity_input" min="1" placeholder="1" step="1" required>
 
-                <label for="customisation">Choose a customisation</label>
-                <select data="item-customisation" name="customisation_select" id="customisation" required></select>
+                <label for="customisation">Choose a customisation:</label>
+                <select data="furniture-customisation" name="customisation_select" id="customisation" required></select>
 
                 <button type="submit">Add to basket</button>
             </form>

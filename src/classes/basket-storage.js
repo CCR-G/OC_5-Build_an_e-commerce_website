@@ -1,31 +1,37 @@
 import { BasketItem } from "./basket-item";
 import { LOCAL_STORAGE } from "../local-storage";
 
+/** Class representing the Basket. */
 export class Basket {
+
     constructor() {
         this.basket_storage = {};
-        this.updateBasket();
+        this.initiateBasketStorage();
     }
 
-    updateBasket() {
+    initiateBasketStorage() {
         let stored_basket = LOCAL_STORAGE.basket;
         if (stored_basket) {
             for (const id in stored_basket) {
-                this.add(new BasketItem(
+                this.basket_storage[id] = new BasketItem(
                     stored_basket[id].furniture,
                     stored_basket[id].customisation,
                     stored_basket[id].quantity
-                ));
+                );
             }
         }
     }
 
+    /**
+     * Adds a basket item to the basket.
+     * @param {BasketItem} basket_item - The BasketItem to add to the basket.
+     */
     add(basket_item) {
         if (!this.basket_storage[basket_item._id]) {
             this.basket_storage[basket_item._id] = basket_item;
         }
         else {
-            this.basket_storage[basket_item._id].addToQuantity(basket_item.quantity);
+            this.basket_storage[basket_item._id].increaseQuantity(basket_item.quantity);
         }
 
         this.updateLocalStorage();

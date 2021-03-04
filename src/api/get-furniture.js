@@ -1,24 +1,19 @@
 import { Furniture } from "../classes/furniture";
 
 /**
- * Returns an object corresponding to the item's id passed as argument.
- * Uses the API to fetch the item.
- * Throws an error with error status if the item could not be retrieved.
- *
- * @function getFurniture
- * @param {string} item_id - ID of the item queried
-
- * @returns {Furniture} Furniture object matching the item's id
+ * Asynchronous function retrieving and returning a furniture by its id from the API.
+ * @param {string} furniture_id - ID of the furniture requested.
+ * @return {Promise<Furniture>} A Furniture.
  */
-export async function getFurniture(item_id) {
-    const item = await fetch(`http://localhost:3000/api/furniture/${item_id}`);
+export async function getFurniture(furniture_id) {
+    const api_response = await fetch(`http://localhost:3000/api/furniture/${furniture_id}`);
 
-    if (!item.ok) {
-        throw new Error(`Error ${item.status} : Item ${item_id} could not be retrieved.`);
+    if (!api_response.ok) {
+        throw new Error(`Error ${api_response.status} : Furniture ${furniture_id} could not be retrieved.`);
     }
 
-    const json_item = await item.json();
-    const product = new Furniture(json_item);
+    const json_furniture = await api_response.json();
+    const furniture = new Furniture(json_furniture);
 
-    return product;
+    return furniture;
 }

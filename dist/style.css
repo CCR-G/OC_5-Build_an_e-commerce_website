@@ -1,0 +1,204 @@
+body > * {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+}
+form * {
+  margin: 10px 0;
+}
+
+body > * {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+}
+form * {
+  margin: 10px 0;
+}
+
+.furniture-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.furniture-card {
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.13), 0 2px 12px rgba(0, 0, 0, 0.06);
+  flex: 1 1 250px;
+}
+.furniture-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.image-container {
+  display: flex;
+  height: 200px;
+  overflow: hidden;
+}
+.image-container img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-label {
+  display: flex;
+  margin: 15px 11px 16px;
+  flex-direction: column;
+}
+.card-label__title {
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+body > * {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+}
+form * {
+  margin: 10px 0;
+}
+
+.image-container {
+  display: flex;
+  height: 200px;
+  overflow: hidden;
+}
+.image-container img {
+  object-fit: cover;
+  width: 100%;
+}
+
+body > * {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  margin: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+}
+form * {
+  margin: 10px 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.basket-item-card {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+.basket-item-card div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

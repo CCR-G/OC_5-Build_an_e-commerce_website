@@ -1,22 +1,24 @@
 import { BasketItem } from "../../../classes/basket-item";
 import { Basket } from "../../../classes/basket-storage";
+
 import { setBasketQuantity } from "../../../common/set-basket-quantity";
+
 import { FurnitureUserInterface } from "../../../user-interfaces/furniture-ui";
 
-export function setupUserInterface(item) {
-    FurnitureUserInterface.furnitureDetails = item;
+export function setupUserInterface(furniture) {
+    FurnitureUserInterface.furnitureDetails = furniture;
 
     FurnitureUserInterface.proposeToAddToBasket();
     document.addEventListener("ADD_TO_BASKET_FORM_SENT", (event) => {
-        addFurnitureToBasket(event, item)
+        addFurnitureToBasket(event, furniture)
     });
 }
 
-function addFurnitureToBasket(event, item) {
+function addFurnitureToBasket(event, furniture) {
     const basket = new Basket;
     basket.add(
         new BasketItem(
-            item,
+            furniture,
             event.detail.customisation,
             event.detail.quantity
         )

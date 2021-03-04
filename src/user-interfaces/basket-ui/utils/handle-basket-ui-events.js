@@ -10,8 +10,8 @@ export function handleCommandEvent(event) {
     document.dispatchEvent(
         new CustomEvent('COMMAND_FORM_SENT', {
             detail: {
-                full_name: event.target.full_name.value,
-                used_name: event.target.used_name.value,
+                first_name: event.target.first_name.value,
+                last_name: event.target.last_name.value,
                 address: event.target.address.value,
                 town: event.target.town.value,
                 email: event.target.email.value,

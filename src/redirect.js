@@ -1,6 +1,5 @@
-import { CommandRequest } from "./classes/command-request";
+export const Redirect = {
 
-export const Router = {
     basket() {
         window.location = "basket.html";
     },
