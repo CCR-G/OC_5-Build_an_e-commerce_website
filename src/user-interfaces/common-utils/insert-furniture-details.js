@@ -18,7 +18,7 @@ export function insertFurnitureDetails(furniture, scope = document) {
 
     const furniture_link = scope.querySelector(`[data='furniture-link']`)
     if (furniture_link) {
-        furniture_link.href = `item.html?id=${furniture._id}`;
+        furniture_link.href = `furniture.html?id=${furniture._id}`;
         furniture_link.title = `Naviguer vers la page ${furniture.name}`;
     }
 

@@ -2,11 +2,11 @@ import { getFurniture } from "../../api/get-furniture";
 import { Redirect } from "../../utils/redirect";
 
 import { getFurnitureIdFromURL } from "./utils/get-furniture-id-from-url";
-import { setupUserInterface } from "./utils/setup-user-interface";
+import { handleUserInterface } from "./utils/handle-user-interface";
 
-generateItemPage();
+generateFurniturePage();
 
-function generateItemPage() {
+function generateFurniturePage() {
     const furniture_id = getFurnitureIdFromURL();
     if (!furniture_id) {
         Redirect.home();
@@ -18,5 +18,5 @@ function generateItemPage() {
             Redirect.home();
             return;
         })
-        .then(setupUserInterface);
+        .then(handleUserInterface);
 }

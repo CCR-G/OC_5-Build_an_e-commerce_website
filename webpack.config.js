@@ -11,7 +11,7 @@ module.exports = {
     //This generates the JS files
     entry: {
         index: './src/pages-logic/index/index.js',
-        item: './src/pages-logic/item/item.js',
+        furniture: './src/pages-logic/furniture/furniture.js',
         basket: './src/pages-logic/basket/basket.js',
         command: './src/pages-logic/command/command.js',
         common: './src/pages-logic/common/common.js'
@@ -28,10 +28,10 @@ module.exports = {
             'meta': meta,
         }),
         new HtmlWebpackPlugin({
-            template: './src/pages-logic/item/item.html',
+            template: './src/pages-logic/furniture/furniture.html',
             inject: true,
-            chunks: ['item'],
-            filename: 'item.html',
+            chunks: ['furniture'],
+            filename: 'furniture.html',
             'meta': meta,
         }),
         new HtmlWebpackPlugin({
