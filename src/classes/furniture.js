@@ -9,7 +9,7 @@ export class Furniture {
     constructor(json_furniture) {
         this._id = json_furniture._id;
         this.name = json_furniture.name;
-        this.price = json_furniture.price;
+        this.price = json_furniture.price / 100;
         this.description = json_furniture.description;
         this.varnish = json_furniture.varnish;
         this.imageUrl = json_furniture.imageUrl;
