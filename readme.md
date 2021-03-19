@@ -18,7 +18,7 @@ After viewing its basket the user will be able to send a command request and rec
 ### Run the app
 
 #### Easy way
-Go to this address: https://ccr-g.github.io/5_07012021/dist.
+Go to this address: https://ccr-g.github.io/OC_5-Build_an_e-commerce_website/dist.
 
 #### Local way
 * Clone this repo in your local server directory (using WAMP, XAMP, MAMP, Laragon, etc…).
